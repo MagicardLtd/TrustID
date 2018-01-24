@@ -1,0 +1,50 @@
+$toggle-size: 50px;
+$toggle-space: 4px; // also update - input:checked + label:after
+
+.toggle-input {
+  input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: $toggle-size*2;
+    height: $toggle-size;
+    background: $trust_lblue;
+    display: block;
+    border-radius: $toggle-size;
+    position: relative;
+    margin: auto;
+  }
+
+  label:after {
+    content: '';
+    position: absolute;
+    top: $toggle-space;
+    left: $toggle-space;
+    width: $toggle-size - $toggle-space*2;
+    height: $toggle-size - $toggle-space*2;
+    background: $white;
+    border-radius: $toggle-size - $toggle-space*2;
+    @include transition(all 0.3s);
+  }
+
+  input:checked + label {
+    background: $trust_blue;
+    @include transition(all 0.3s);
+  }
+
+  input:checked + label:after {
+    left: calc(100% - 4px); //for some reason the variable for togglespace doesnt work here.
+    @include translate(-100%, 0);
+    // transform: translateX(-100%);
+  }
+
+  label:active:after {
+    width: ($toggle-size*2) - ($toggle-size/8);
+  }
+
+}

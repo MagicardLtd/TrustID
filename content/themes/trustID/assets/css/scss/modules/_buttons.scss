@@ -1,0 +1,77 @@
+
+%btn {
+  position:relative;
+  text-decoration:none;
+  color:$white;
+  padding:1em 1.2em;
+  margin:0;
+  cursor:pointer;
+  line-height:1;
+  @include transition(all 0.14s ease-in-out);
+  letter-spacing:1px;
+  display:inline-block;
+  font-weight: 700;
+  text-transform:uppercase;
+  &:hover, &:focus {
+    text-decoration:none;
+    color:$white;
+  }
+  &:active {
+    top:1px;
+  }
+}
+
+button {
+  border:none;
+}
+
+.menuBtn {
+  a {
+    @extend %btn;
+    border: 1px solid $white;
+  }
+}
+
+.whiteBtn {
+  @extend %btn;
+  background-color:$white;
+  @include box-shadow();
+  border:1px solid $white;
+  color: $trust_blue;
+  &:hover,&:focus,&:active {
+    background-color:$trust-lblue;
+    color: $white;
+  }
+  &.disable {
+    background-color:$trust-lblue;
+    color: $white;
+  }
+}
+
+.videoBtn, .waves, .wave {
+  background-color: $white;
+  color: $trust_blue;
+  width: 80px;
+  line-height:80px;
+  position: absolute;
+  top:auto;bottom:0;left:0;right:0;
+  margin:auto;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  font-family: "trust-id";
+  font-size: 3em;
+  font-weight: 600;
+  .wave {
+    opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; background-clip: padding-box; -webkit-animation: waves 3s ease-in-out infinite; animation: waves 3s ease-in-out infinite;
+    .wave-1 { -webkit-animation-delay: 0s; animation-delay: 0s; }
+    .wave-2 { -webkit-animation-delay: 1s; animation-delay: 1s; }
+    .wave-3 { -webkit-animation-delay: 2s; animation-delay: 2s; }
+  }
+}
+
+
+// .counter-info .iq-video { position: absolute; left: 68%; top: 60%; background: #fff; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 80px; height: 80px; text-align: center; font-size: 38px; color: #009efd; border-radius: 100%; line-height: 2.1; z-index: 9; }
+//  .iq-waves { position: absolute; width: 384px; width: 24rem; height: 384px; height: 24rem; left: 68%; top: 60%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index: 2; }
+// .iq-waves .waves { position: absolute; width: 384px; width: 24rem; height: 384px; height: 24rem; background: rgba(255, 255, 255, 0.2); opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; border-radius: 320px; background-clip: padding-box; -webkit-animation: waves 3s ease-in-out infinite; animation: waves 3s ease-in-out infinite; }
+//

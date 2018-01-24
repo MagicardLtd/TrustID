@@ -1,0 +1,116 @@
+// ********************************************
+// SECTIONS
+// ********************************************
+.et_pb_section {
+  // colours
+  &.lightBlue {
+    background-color: $trust-bg-blue;
+  }
+  &.lightGrey {
+    background-color: lighten($trust-grey, 58%);
+  }
+  &.blue {
+    background-color: $trust_blue;
+    p {
+      color: $white;
+    }
+  }
+  &.white {
+    background-color: $white;
+    &.showIcon {
+      color: $trust-bg-blue;
+    }
+  }
+  // Icons
+  &.showIcon {
+    position: relative;
+    overflow:hidden;
+    &:before {
+      font-family: "trust-id";
+      content: "";
+      position: absolute;
+      display: block;
+      top: auto;
+      // left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 10em
+    }
+    // the Icons
+    &.wizard {
+      &:before {
+        content: "w";
+      }
+    }
+  }
+}
+
+
+// ********************************************
+// ELEMENTS
+// ********************************************
+.paper {
+  background:$white;
+  @include material_box_shadow(1);
+  border-radius: 5px;
+  padding: 2.5em;
+  &:hover {
+    @include material_box_shadow(3);
+    @include translate (0, -5px);
+  }
+}
+
+.edition {
+  // @include susy-span(1 of 5);
+  overflow: hidden;
+  position:relative;
+  padding:0;
+  header {
+    position: relative;
+    width:200%;
+    margin-left: -50%;
+    padding:1.5em 50% 2em;
+    border-radius: 0px 0px 50% 50%;
+    background-color: $trust-blue;
+    text-align: center;
+    @include material_box_shadow(2);
+    span {
+      color: $white;
+      display:block;
+      &.edition_price {
+        font-size: 2.5em;
+        font-weight: 900;
+        margin-bottom:0.5em;
+        &::first-letter {
+          vertical-align: super;
+          font-size: 0.5em;
+          margin-right:0.15em;
+        }
+      }
+      &.edition_title {
+        font-size: 1.75em;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-transform:uppercase;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+    padding:0;
+    margin:1em 0;
+    li {
+      text-align: center;
+      padding:1em 1.5em;
+      line-height: 1;
+      strong {
+        display: block;
+        font-size: 0.9em;
+        margin-top: 0.25em;
+      }
+      &:nth-child(even) {
+        background-color: $trust-bg-blue;
+      }
+    }
+  }
+}

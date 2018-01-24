@@ -1,0 +1,95 @@
+<?php
+	global $displayKeys;
+    if (isset($displayKeys))
+        include('trustid-activation-keys.php');
+    ?>
+
+<style>
+	span.hint {color:#aaa;}
+	label {font-weight:bold; display:inline-block; width:100px; padding-right:10px;}
+	label.error {width:auto; padding-left:10px; color:red;}
+	input, select {display:inline-block; width:150px;}
+</style>
+
+
+<div class="wrap">
+	<div id="icon-tools" class="icon32"></div><h2>Generate registration keys</h2>
+</div>
+<div class="wrap">
+	<br>
+	This form will generate a quantity of registration keys and store them in the key database.<br>
+	<form method="POST" id="generate-keys">
+		<ul>
+			<li>
+				<label for="qty">Quantity of keys</label><input type="text" name="qty" value="1">
+				<br><span class="hint">How many keys to generate</span>
+				<br>&nbsp;<br>
+			</li>
+			<li>
+				<label for="edition">Software edition</label><select name="edition">
+					<option value="0">Classic</option>
+					<option value="1">Premium</option>
+					<option value="2">Pro</option>
+					<option value="3">Pro Smart</option>
+				</select>
+				<br><span class="hint">Which edition of the software</span>
+				<br>&nbsp;<br>
+			</li>
+			<li>
+				<label for="upgrade">Version number</label><input type="text" name="upgrade" value="0">
+				<br><span class="hint">Which version number of the software or upgrade version</span>
+				<br>&nbsp;<br>
+			</li>
+			<li>
+				<label for="distributor">Distributor</label><input type="text" name="distributor">
+				<br><span class="hint">Distribution company or method for these keys</span>
+				<br>&nbsp;<br>
+			</li>
+			<li>
+				<label for="purpose">For Sale or Demo?</label><select name="purpose">
+					<option value="0">Sale</option>
+					<option value="1">Dealer Demo</option>
+				</select>
+				<br><span class="hint">For sale or for dealer demonstration/support use?</span>
+				<br>&nbsp;<br>
+			</li>
+			<li>
+				<input class="button-primary" type="submit" id="generate" name="generate" value="Generate keys">
+			</li>
+		</ul>
+	</form>
+	<script>
+
+	jQuery( "#generate-keys" ).validate({
+		rules: {
+			qty: {
+			required: true,
+			digits: true,
+			range: [1,100]
+			},
+			edition: {
+			required: true,
+			range: [0,7]
+			},
+			upgrade: {
+			required: true,
+			digits: true,
+			range: [0,31]
+			},
+			distributor: {
+			required: true,
+			rangelength: [2,200]
+			},
+			purpose: {
+			required: true,
+			rangelength: [0,11]
+			}
+		}
+	});
+
+	jQuery( "generate" ).click(function() {
+		return confirm('Are you sure you want to generate ' + form.qty.value + ' key(s)?')
+	});
+	</script>
+</div>
+

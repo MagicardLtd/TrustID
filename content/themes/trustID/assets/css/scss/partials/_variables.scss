@@ -1,0 +1,91 @@
+
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+$black:             #000;
+$white:             #fff;
+
+// **************************************************
+// BREAKPOINT VARIABLES
+// *************************************************
+$mobile:             100%;
+$tablet:             100%;
+$desktop:            1028px;
+$max-width:          1280px;
+
+// **************************************************
+// BRAND COLOURS
+// *************************************************
+$trust-blue:          rgb(0,62,126);
+$trust-orange:        rgb(255,162,2);
+$trust-lblue:         rgb(28,138,255);
+$trust-grey:          rgb(102,102,102);
+$trust-bg-blue:       rgb(245,248,252);
+
+// ************************************************
+// SERVICES
+// ************************************************
+// $navColours: (
+  // "default":              $cds-blue,
+  // "cvl":                  rgb(79,115,138),
+  // "admin":                rgb(0,130,162),
+  // "cva":                  rgb(100,75,96),
+  // "wind":                 rgb(214,76,1),
+  // "hmrc":                 rgb(239,142,35),
+  // "mvl":                  rgb(79,152,135),
+  // "wrong":                rgb(79,115,138)
+// );
+// $navIcons: (
+  // cvl                 "\f080",
+  // admin               "\f1cd",
+  // cva                 "\f017",
+  // wind                "\f0e3",
+  // hmrc                "\f19c",
+  // mvl                 "\f13e",
+  // wrong               "\f080"
+// );
+
+// ************************************************
+// GENERIC ICONS
+// ************************************************
+// $contactIcons: (
+  // phone:          "\f095",
+  // chat:           "\f075",
+  // email:          "\f0e0",
+  // office:         "\f041",
+  // wfAddress:      "\f041",
+  // wfContact:      "\f075",
+  // wfPolicy:       "\f129"
+// );
+
+// ************************************************
+// SOCIAL
+// ************************************************
+// $socialColour: (
+  // totop:             $wf-blue,
+  // chat:              $wf-lblue,
+  // google:            rgb(221,75,57),
+  // linkedin:          rgb(0,123,182),
+  // twitter:           rgb(0,172,237),
+  // youtube:           rgb(196,48,43),
+  // facebook:          rgb(59,89,152),
+  // pinterest:         rgb(203,32,39),
+  // email:             $wf-grey
+// );
+// $socialIcons: (
+  // totop:             "\f106",
+  // facebook:          "\f09a",
+  // twitter:           "\f099",
+  // google:            "\f0d5",
+  // linkedin:          "\f0e1",
+  // youtube:           "\f167",
+  // pinterest:         "\f0d2",
+  // email:             "\f003"
+// );
+
+// ************************************************
+// FONT
+// ************************************************
+$sans-serif:        "Roboto", sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
