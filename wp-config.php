@@ -43,7 +43,7 @@ define('SECURE_AUTH_SALT', ']C!2`~^CFhAEGiU){W>mv~?d<QqFt_*&QwSKnjsL 1<t!MwSsoa0
 define('LOGGED_IN_SALT',   ',PS+5hdp/<k51Z,4d}n`c z#Et;l8V<T*>y9pnMPs!T U}m(E,MC)<fIgw(X]TyY');
 define('NONCE_SALT',       'kDrdeKc!brjoNGI%2QO73)SmBb]=1@q6SgeRJu**_`Y~:T&I^4Ak u$FO,MC~Op6');
 
-$table_prefix  = 'wp_';
+$table_prefix  = 'trustid_';
 
 define('WPLANG', '');
 define('WP_DEBUG', true);
