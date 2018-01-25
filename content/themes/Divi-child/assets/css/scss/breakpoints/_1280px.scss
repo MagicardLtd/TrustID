@@ -1,0 +1,209 @@
+// ********************************************
+// COMMON SITE STYLES
+// ********************************************
+html {
+  font-size:18px; // Set base font for mobile
+}
+
+.single, .home, .page {
+  #page-container {
+    padding-top:0 !important;
+  }
+}
+
+// ********************************************
+// BANNER
+// ********************************************
+#banner_container {
+  #banner_curve, #banner_img {
+    #heroImg {
+      bottom: -70px;
+    }
+  }
+  #banner_img {
+    background-size: 100%;
+  }
+  #banner_content {
+    max-width: 1000px;
+    padding-top: 150px;
+    #banner_title {
+      font-weight: 900;
+      font-size:3.75em;
+      line-height: 1.25em;
+    }
+    #banner_text {
+      font-size: 1em;
+      margin-bottom: 1.5em;
+    }
+    #banner_btn {
+      font-size: 1.25em;
+      margin:0.5em 0;
+    }
+  }
+  &.page_banner {
+    #banner_curve {
+      &:after {
+        display: block;
+        visibility: hidden;
+        clear: both;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        content: ".";
+      }
+    }
+    #banner_content {
+      text-align: left;
+      max-width: 1280px;
+      #banner_title, #banner_text {
+        text-align: left;
+      }
+      #banner_text {
+        width:100%;
+      }
+    }
+    #image_container {
+      position: relative;
+      display: inline-block;
+      #pageHeroImg {
+        display: block;
+        margin: -30px auto -135px;
+        margin: 0 auto -100px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// ********************************************
+// SCREEN SLIDER
+// ********************************************
+.screenshots-slider {
+  display: inline-block;
+  width: 100%;
+  min-height: 500px;
+}
+.slider-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 780px;
+  height: 580px;
+  margin: -300px 0 0 -400px;
+  .slider-content {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    @include translate (-50%, -50%);
+    .slider-single {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding:1.5em;
+      @include transition(z-index 0ms 250ms);
+      .slider-single-slide {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @include transition(500ms cubic-bezier(0.17, 0.67, 0.55, 1.43));
+        @include scale(0);
+        opacity: 0;
+        img {
+          @include material_box_shadow(2);
+          height:auto;§
+          &:hover {
+            @include material_box_shadow(3);
+            @include translate(0, -5px);
+          }
+        }
+        .preactivede & {
+          @include transform( translateX(-50%) scale(0) );
+        }
+      }
+      &.preactive {
+        z-index: 1;
+        .slider-single-slide {
+          opacity: 0.3;
+          @include transform( translateX(-25%) scale(0.8) );
+        }
+      }
+      &.proactive {
+        z-index: 1;
+        .slider-single-slide {
+          opacity: 0.3;
+          @include transform( translateX(25%) scale(0.8) );
+        }
+      }
+      &.active {
+        z-index: 2;
+        .slider-single-slide {
+          opacity: 1;
+          @include transform( translateX(0) scale(1) );
+        }
+      }
+    }
+  }
+}
+
+// ********************************************
+// FEATURED VIDEO
+// ********************************************
+#featured_video {
+  padding-bottom:0;
+  .video_container {
+    display:inline-block;
+    float:left;
+    position:relative;
+    .center_block {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      vertical-align: middle;
+      margin-top: -30px;
+      margin-bottom: -135px;
+    }
+  }
+}
+
+// ********************************************
+// PRICING TABLE
+// ********************************************
+#pricing_options {
+  @include container(100%);
+  margin-bottom: 3em;
+  border-bottom: 1px solid rgba($trust_blue, 0.1);
+  #selectCur {
+    text-align: center;
+    padding-bottom: 3em;
+    @include span(2 of 6);
+    @include push(2);
+    border-right: 1px solid rgba($trust_blue, 0.1);
+    vertical-align: middle;
+  }
+  #selectSub {
+    text-align: center;
+    padding-bottom: 3em;
+    @include span(2 of 6);
+    vertical-align: middle;
+    .toggle-input {
+      height: 64px;
+      padding-top: 8px;
+      label, span {
+        vertical-align: middle;
+        display: inline-block;
+        font-size: 1.25em;
+        color: $trust_blue;
+        font-weight: 500;
+        margin: 0 3px;
+      }
+    }
+  }
+}
