@@ -60,13 +60,13 @@ $toggle-space: 4px; // also update - input:checked + label:after
     &:checked {
       + .flag {
         &.flag-eu {
-          background-position: -128px 0;
+          background-position: -130px -2px;
         }
         &.flag-us {
-          background-position: 0 0;
+          background-position: -2px -2px;
         }
         &.flag-gb {
-          background-position: -64px 0;
+          background-position: -66px -2px;
         }
       }
     }
@@ -86,21 +86,21 @@ $toggle-space: 4px; // also update - input:checked + label:after
       @include translate (0, -5px);
     }
     &.flag-eu {
-      background-position: -128px -66px;
+      background-position: -130px -66px;
       &:hover {
-        background-position: -128px 0;
+        background-position: -130px -2px;
       }
     }
     &.flag-us {
-      background-position: 0 -66px;
+      background-position: -2px -66px;
       &:hover {
-        background-position: 0 0;
+        background-position: -2px -2px;
       }
     }
     &.flag-gb {
-      background-position: -64px -66px;
+      background-position: -66px -66px;
       &:hover {
-        background-position: -64px 0;
+        background-position: -66px -2px;
       }
     }
   }
