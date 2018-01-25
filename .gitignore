@@ -3,7 +3,6 @@
 *sublime-*
 !.gitkeep
 local-config.php
-develop-config.php
 staging-config.php
 live-config.php
 sitemap.xml
