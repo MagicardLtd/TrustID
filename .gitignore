@@ -9,7 +9,6 @@ live-config.php
 sitemap.xml
 sitemap.xml.gz
 content/uploads/*
-content/themes/ultraid/cpt/printers/printer-model-selector/generated/*
 content/themes/*/node_modules
 content/db.php
 content/plugins/query-monitor/
