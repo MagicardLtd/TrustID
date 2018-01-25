@@ -178,7 +178,6 @@ html {
 // ********************************************
 #pricing_options {
   @include container(100%);
-  background:red;
   margin-bottom: 3em;
   border-bottom: 1px solid rgba($trust_blue, 0.1);
   #selectCur {
