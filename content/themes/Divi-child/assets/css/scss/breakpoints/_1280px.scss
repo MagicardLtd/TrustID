@@ -226,6 +226,9 @@ html {
   max-width: 100% !important;
   #theMap {
     position: relative;
+    .et_pb_map {
+      height:500px;
+    }
   }
   #mapForm {
     position: absolute;
@@ -260,6 +263,7 @@ html {
 // PRE FOOTER
 // ********************************************
 #footerContacts {
+  padding: 100px 0;
   .contact {
     .et_pb_blurb_content {
       @include container(100%);
