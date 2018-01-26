@@ -207,3 +207,51 @@ html {
     }
   }
 }
+
+// EDITIONS
+.edition {
+  @include span(1 of 5);
+  &:last-of-type {
+    @include span(1 of 5 last);
+  }
+}
+
+// ********************************************
+// THE MAP
+// ********************************************
+.fullMap {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  #theMap {
+    position: relative;
+  }
+  #mapForm {
+    position: absolute;
+    max-width: 1280px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+    z-index: 100;
+    .et_pb_contact {
+      @include container(100%);
+      form {
+        &.et_pb_contact_form {
+          margin-left: 0 !important;
+        }
+        @include span(2 of 6);
+        float: right;
+        background-color: $white;
+        @include material_box_shadow(1);
+        border-radius: 5px;
+        padding: 2.5em;
+        &:hover {
+          @include material_box_shadow(3);
+          @include translate (0, -5px);
+        }
+      }
+    }
+  }
+}

@@ -211,9 +211,9 @@ body {
  // ********************************************
  // EDITIONS
  // ********************************************
-.edition {
-  @include span(1 of 5);
-  &:last-of-type {
-    @include span(1 of 5 last);
-  }
-}
+// .edition {
+//   @include span(1 of 5);
+//   &:last-of-type {
+//     @include span(1 of 5 last);
+//   }
+// }
