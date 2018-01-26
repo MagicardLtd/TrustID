@@ -255,3 +255,42 @@ html {
     }
   }
 }
+
+// ********************************************
+// PRE FOOTER
+// ********************************************
+#footerContacts {
+  .contact {
+    .et_pb_blurb_content {
+      @include container(100%);
+      .et_pb_main_blurb_image {
+        @include span(2 of 6);
+        .et_pb_image_wrap {
+          border-radius: 50%;
+          background-color: lighten($trust-grey, 50%);
+          width:64px; height:64px;
+          display: inline-block;
+          text-align: center;
+          line-height: 64px;
+          vertical-align:middle;
+          span {
+            font-size:2em;
+            vertical-align:middle;
+          }
+        }
+      }
+      .et_pb_blurb_container {
+        @include span(4 of 6 last);
+        h4 {
+          font-weight: 600;
+          padding-bottom: 0.75em;
+        }
+        p {
+          font-size: 1em;
+          font-weight: 400;
+          padding-bottom: 0.25em;
+        }
+      }
+    }
+  }
+}
