@@ -14,11 +14,13 @@
   }
 }
 .et_pb_contact_form {
-  content:"Get in touch";
-  color: $trust-blue;
-  font-size: 2.5em;
-  font-weight: 700;
-  border-bottom: 0.5em;
+  &:before {
+    content:"Get in touch";
+    color: $trust-blue;
+    font-size: 2.5em;
+    font-weight: 700;
+    border-bottom: 0.5em;
+  }
 }
 .et_contact_bottom_container {
   float: none;
