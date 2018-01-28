@@ -17,23 +17,25 @@
   float: none;
   margin-top: 1.5%;
   text-align: left;
-  // .et_pb_contact_submit {
-  //   margin:0;
-  //   @extend %btn;
-  //   background-color:$trust_blue;
-  //   @include box-shadow();
-  //   border:1px solid $trust_blue;
-  //   color: $white;
-  //   &:hover,&:focus,&:active {
-  //     background-color:darken($trust-blue, 8%);
-  //     color: $white;
-  //   }
-  //   &.disable {
-  //     background-color:$trust-lblue;
-  //     color: $white;
-  //   }
-  // }
+  .et_pb_contact_submit {
+    @extend %btn;
+    border:1px solid $trust_blue;
+    border-radius: 0;
+    background-color:$trust_blue;
+    font-size: 1.25em;
+    line-height: 1 !important;
+    color: $white;
+    &:hover,&:focus,&:active {
+      background-color:darken($trust-blue, 8%);
+      color: $white;
+    }
+    &.disable {
+      background-color:$trust-lblue;
+      color: $white;
+    }
+  }
 }
+
 
 // ********************************************
 // TOGGLE
