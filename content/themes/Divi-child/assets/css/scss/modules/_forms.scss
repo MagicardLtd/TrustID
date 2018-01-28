@@ -25,6 +25,7 @@
     font-size: 1.25em;
     line-height: 1 !important;
     color: $white;
+    padding:1em 1.2em !important;
     &:hover,&:focus,&:active {
       background-color:darken($trust-blue, 8%);
       color: $white;
