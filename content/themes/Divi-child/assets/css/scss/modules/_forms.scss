@@ -13,6 +13,13 @@
     }
   }
 }
+.et_pb_contact_form {
+  content:"Get in touch";
+  color: $trust-blue;
+  font-size: 2.5em;
+  font-weight: 700;
+  border-bottom: 0.5em;
+}
 .et_contact_bottom_container {
   float: none;
   margin-top: 1.5%;
@@ -29,6 +36,7 @@
     &:hover,&:focus,&:active {
       background-color:darken($trust-blue, 8%);
       color: $white;
+      padding:1em 1.2em !important;
     }
     &.disable {
       background-color:$trust-lblue;
