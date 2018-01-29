@@ -186,6 +186,7 @@
     screensilder();
     popupgallery();
     updatePrice();
+    $("ul>li,ol>li").wrapInner("<span></span>");
     $('.currency').change(function() { changeCurrency($(this)) });
     $('#priceToggle').change(function() {
       if (this.checked) {
