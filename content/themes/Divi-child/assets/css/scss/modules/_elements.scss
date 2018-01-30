@@ -110,10 +110,17 @@
       text-align: center;
       padding:1em 1.5em;
       line-height: 1;
+      height:200px;
+      border:1px solid red;
       strong {
         display: block;
         font-size: 0.9em;
         margin-top: 0.25em;
+      }
+      span {
+        vertical-align:middle;
+        display:inline-block;
+        line-height:1.2;
       }
       &:nth-child(even) {
         background-color: $trust-bg-blue;

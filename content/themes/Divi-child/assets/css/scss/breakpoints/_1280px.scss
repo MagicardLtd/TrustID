@@ -214,16 +214,6 @@ html {
   &:last-of-type {
     @include span(1 of 5 last);
   }
-  li {
-    height:200px;
-    line-height:200px;
-    border:1px solid red;
-    span {
-      vertical-align:middle;
-      display:inline-block;
-      line-height:1.2;
-    }
-  }
 }
 
 // ********************************************
