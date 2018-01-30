@@ -218,11 +218,11 @@ html {
     height:200px;
     line-height:200px;
     border:1px solid red;
-  }
-  li span {
-    vertical-align:middle;
-    display:inline-block;
-    line-height:1.2;
+    span {
+      vertical-align:middle;
+      display:inline-block;
+      line-height:1.2;
+    }
   }
 }
 
