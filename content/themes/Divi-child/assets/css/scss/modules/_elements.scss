@@ -19,6 +19,7 @@
     background-color: $white;
     &.showIcon {
       color: $trust-bg-blue;
+      // font-size: 12em;
     }
   }
   // Icons
@@ -32,9 +33,9 @@
       display: block;
       top: auto;
       // left: 0;
-      bottom: 0;
+      bottom: 100px;
       right: 0;
-      font-size: 10em
+      font-size: 30em
     }
     // the Icons
     &.wizard {
@@ -108,14 +109,14 @@
     margin:1em 0;
     li {
       text-align: center;
-      padding:1em 1.5em;
-      line-height: 1;
-      height:200px;
-      border:1px solid red;
+      padding:0 1.5em;
+      line-height: 75px;
+      height:75px;
       strong {
         display: block;
         font-size: 0.9em;
         margin-top: 0.25em;
+        font-weight: 900;
       }
       span {
         vertical-align:middle;
@@ -125,6 +126,15 @@
       &:nth-child(even) {
         background-color: $trust-bg-blue;
       }
+    }
+  }
+  footer {
+    text-align: center;
+    padding-bottom: 1.5em;
+    span {
+      display:block;
+      line-height: 1;
+      margin:1em;
     }
   }
 }

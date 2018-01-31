@@ -99,7 +99,7 @@ function home_page_banner($id) {
 	$html .= '<div id="banner_curve">';
 	$html .= '<section id="banner_content">'."\n";
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
-	$html .= '<p id="banner_text">'.$data['text'].'</p>'."\n";
+	$html .= $data['text']."\n";
 	$html .= '<a id="banner_btn" href="#" class="whiteBtn">'.$data['button'].'</a>';
 	$html .= "</section>\n";
 	$html .= '<img id="heroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
@@ -130,7 +130,9 @@ function page_banner($id) {
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
 	$html .= '<div class="test_box et_pb_column et_pb_column_1_2">'."\n";
 	$html .= '<p id="banner_text">'.$data['text'].'</p>'."\n";
-	$html .= '<a id="banner_btn" href="#" class="whiteBtn">'.$data['button'].'</a>';
+	if ($data['button']) {
+		$html .= '<a id="banner_btn" href="#" class="whiteBtn">'.$data['button'].'</a>';
+	}
 	$html .= "</div>\n";
 	$html .= '<div id="image_container" class="test_box et_pb_column et_pb_column_1_2">'."\n";
 	$html .= '<img id="pageHeroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
@@ -166,8 +168,8 @@ function screen_carasel() {
 			$html .= "</div>\n";
 		}
 		$html .= "</div>\n"; // Close slider-content
-		$html .= '<a class="slider-left" href="javascript:void(0);">prev</a>';
-		$html .= '<a class="slider-right" href="javascript:void(0);">next</a>';
+		$html .= '<a class="slider-left" href="javascript:void(0);"><svg class="icon-left-open-big"><use xlink:href="#icon-left-open-big"></use></svg></a>';
+		$html .= '<a class="slider-right" href="javascript:void(0);"><svg class="icon-right-open-big"><use xlink:href="#icon-right-open-big"></use></svg></a>';
 		// <i class="fa fa-angle-right"></i>
 		$html .= "</div>\n"; // Close slider-container
 		$html .= "</div>\n"; // Close slider-container
@@ -248,39 +250,51 @@ function editions_table($features) {
 
 function editions_overview() {
 	global $post;
-	$id = get_the_ID();
+	$getPost = (isset($_GET['ver'])) ? $_GET['ver'] : null;
+	$class = (isset($_GET['ver'])) ? 'single' : null;
 	$html = '';
 	$args = array(
+		"p"						=> $getPost,
 		'post_type'   => 'editions',
 		'post_status' => 'publish',
-		'order' => 'ASC',
+		'order' 			=> 'ASC',
 	);
 	$editions = new WP_Query( $args );
 	if ( $editions->have_posts() ) :
-		$html .= '<div id="pricing_options">'."\n";
-		$html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
-		$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="usd" />'."\n";
-    $html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
-		$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";
-		$html .= '<div class="flag flag-gb"></div>'."\n".'</label>'."\n";
-		$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="eur" />'."\n";
-		$html .= '<div class="flag flag-eu"></div>'."\n".'</label>'."\n";
-		$html .= '</div>'."\n"; // Close selectCur
-		$html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
-		$html .= '<div class="toggle-input">'."\n";
-		$html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
-		$html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annualy</span>'."\n";
-		$html .= '</div>'."\n"; // Close toggle-input
-		$html .= '</div>'."\n"; // Close selectSub
-		$html .= '</div>'."\n"; // Close pricing_options
+		if (!$getPost) {
+			$html .= '<div id="pricing_options">'."\n";
+			$html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="usd" />'."\n";
+			$html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";
+			$html .= '<div class="flag flag-gb"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="eur" />'."\n";
+			$html .= '<div class="flag flag-eu"></div>'."\n".'</label>'."\n";
+			$html .= '</div>'."\n"; // Close selectCur
+			$html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
+			$html .= '<div class="toggle-input">'."\n";
+			$html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
+			$html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annualy</span>'."\n";
+			$html .= '</div>'."\n"; // Close toggle-input
+			$html .= '</div>'."\n"; // Close selectSub
+			$html .= '</div>'."\n"; // Close pricing_options
+		}
 		while ( $editions->have_posts() ) : $editions->the_post();
-			$html .= '<section class="edition paper">'."\n";
+			$html .= '<section class="edition paper '.$class.'">'."\n";
 			$html .= '<header>'."\n";
 			$html .= '<span class="edition_price" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
 			$html .= get_field('monthly_USD').'</span>'."\n";
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
 			$html .= get_field('edition_overview');
+			if (!$getPost) {
+				$html .= '<footer>'."\n";
+				$trialUrl = get_field('trial_form').'&ver='.get_the_ID();
+				$html .= '<a href="'.$trialUrl.'" class="blueBtn trialDownload">download FREE trial</a>'."\n";
+				$html .= '<span>or</span>'."\n";
+				$html .= '<a href="" class="blueBtn editionDownload">Purchase</a>'."\n";
+				$html .= "</footer>\n";
+			}
 			$html .= "</section>\n";
 		endwhile;
 		wp_reset_postdata();

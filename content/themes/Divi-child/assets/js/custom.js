@@ -147,6 +147,19 @@
       slideInitial();
   }
 
+  function updateURL(url, sub, cur) {
+    var queryParameters = {}, queryString = url,
+      re = /([^&=]+)=([^&]*)/g, m;
+    while (m = re.exec(queryString)) {
+      queryParameters[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+    queryParameters['cur'] = cur;
+    queryParameters['sub'] = sub;
+    console.log(queryParameters);
+    console.log($.param(queryParameters));
+    return queryParameters;
+  }
+
   // function price_toggle() {
   function changeCurrency(flag) {
     var val = flag.val();
@@ -168,11 +181,18 @@
 
   function updatePrice() {
     var price = $('.edition_price'),
+      url = $('.trialDownload'),
       sub = $('.edition_price').data('subscription'),
       cur = $('.edition_price').data('currency'),
       tag = (sub == 'monthly') ? '<small> /month</small>' : '<small> /annual</small>';
     price.each(function() {
       $(this).html($(this).data(sub+'-'+cur)+tag);
+    });
+    url.each(function() {
+      var newURL = updateURL($(this).attr("href"), sub, cur);
+      // $(this).attr("href", $.param(newURL));
+      $(this).attr("href", '&sub='+newURL['sub']+'&cur='+newURL['cur']);
+      // console.log($(this).attr("href"));
     });
   }
 

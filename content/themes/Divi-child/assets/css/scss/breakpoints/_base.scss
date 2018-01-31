@@ -69,6 +69,23 @@ body {
     background-color:white;
     @include transition(all 0.14s ease-in-out);
     @include box-shadow(5px, 0, 5px, rgba(0,0,0,.75));
+    #et-top-navigation {
+      padding-top:0;
+      #top-menu-nav {
+        #top-menu {
+          li {
+            a {
+              color: $trust_blue;
+            }
+            &.menuBtn {
+              a {
+                border: 1px solid $trust_blue;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -189,11 +206,14 @@ body {
     position: relative;
     justify-content: center;
     align-items: center;
-    #banner_title, #banner_text {
+    #banner_title, p {
       text-align: center;
       color: $white;
       padding-bottom:0.5em;
       font-size:1.25em;
+    }
+    p {
+      margin-bottom: 0.5em;
     }
     #banner_title {
       font-weight: 700;
