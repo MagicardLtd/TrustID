@@ -100,11 +100,12 @@ function home_page_banner($id) {
 	$html .= '<section id="banner_content">'."\n";
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
 	$html .= $data['text']."\n";
-	$html .= '<a id="banner_btn" href="#" class="whiteBtn">'.$data['button'].'</a>';
+	$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
 	$html .= "</section>\n";
+	$html .= '<div class="image_container">'."\n";
 	$html .= '<img id="heroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
 	$html .= 'sizes="'.esc_attr( $img_size ).'" alt="'.esc_attr( $img_alt ).'">'."\n";
-	$html .= "</div>\n</div>\n</div>\n";
+	$html .= "</div>\n</div>\n</div>\n</div>\n";
 	return $html;
 }
 
@@ -131,7 +132,7 @@ function page_banner($id) {
 	$html .= '<div class="test_box et_pb_column et_pb_column_1_2">'."\n";
 	$html .= '<p id="banner_text">'.$data['text'].'</p>'."\n";
 	if ($data['button']) {
-		$html .= '<a id="banner_btn" href="#" class="whiteBtn">'.$data['button'].'</a>';
+		$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
 	}
 	$html .= "</div>\n";
 	$html .= '<div id="image_container" class="test_box et_pb_column et_pb_column_1_2">'."\n";

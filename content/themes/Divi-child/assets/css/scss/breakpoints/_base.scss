@@ -179,15 +179,44 @@ body {
     background-color: rgba($trust-blue, 0.65);
     margin-bottom:30px;
     text-align: center;
-    #heroImg {
-      position: absolute;
-      top: auto;
-      bottom: -30px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
+    .image_container {
+      display:inline-block;
+      position:relative;
+      height: 428px;
+      #heroImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        vertical-align: middle;
+        float: right;
+        margin-top: 5px;
+        margin-bottom: -135px;
+      }
+      // position: absolute;
+      // top: auto;
+      // bottom: -30px;
+      // left: 0;
+      // right: 0;
+      // margin: 0 auto;
     }
   }
+
+  // .video_container {
+  //   display:inline-block;
+  //   float:left;
+  //   position:relative;
+  //   .center_block {
+  //     display: block;
+  //     margin-left: auto;
+  //     margin-right: auto;
+  //     vertical-align: middle;
+  //     margin-top: 5px;
+  //     margin-bottom: -135px;
+  //   }
+  // }
+
+
+
   #banner_img {
     -webkit-background-size: cover;
     -moz-background-size: cover;

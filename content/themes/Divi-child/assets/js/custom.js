@@ -19,8 +19,8 @@
       var bg = ('url(' + $(this).data("image-src") + ')');
       return bg;
     });
-    var imgH = $('#heroImg').height();
-    $('#banner_curve').css("padding-bottom", imgH+"px");
+    // var imgH = $('#heroImg').height();
+    // $('#banner_curve').css("padding-bottom", imgH+"px");
   }
 
   function past_banner() {
@@ -196,6 +196,12 @@
     });
   }
 
+  function scrollToID(e) {
+  	$('html, body').animate({
+  		scrollTop: $($(this).attr('href')).offset().top
+  	}, 1250, 'easeInOutExpo');
+  }
+
   /*************************
   All function are called here either on page load or scroll
   *************************/
@@ -206,6 +212,10 @@
     screensilder();
     popupgallery();
     updatePrice();
+    $('a[href*="#"]').on('click', function(e) {
+      e.preventDefault();
+      scrollToID();
+    });
     $("ul>li,ol>li").wrapInner("<span></span>");
     $('.currency').change(function() { changeCurrency($(this)) });
     $('#priceToggle').change(function() {
