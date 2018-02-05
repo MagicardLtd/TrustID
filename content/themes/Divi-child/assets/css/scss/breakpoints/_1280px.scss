@@ -232,15 +232,19 @@ html {
 }
 
 // EDITIONS
-.edition {
-  @include span(1 of 5);
-  &:last-of-type {
-    @include span(1 of 5 last);
-  }
-  &.single {
-    @include span(5 of 5 last);
+.editions {
+  @include container(100%);
+  .edition {
+    @include span(1 of 5);
+    &:last-of-type {
+      @include span(1 of 5 last);
+    }
+    &.single {
+      @include span(5 of 5 last);
+    }
   }
 }
+
 
 #editions {
   padding-bottom: 0;
