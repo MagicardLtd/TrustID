@@ -242,6 +242,16 @@ html {
   }
 }
 
+#editions {
+  padding-bottom: 0;
+  .systemSpecs {
+    padding-bottom: 0;
+    img {
+      margin-top: -100px;
+    }
+  }
+}
+
 // ********************************************
 // THE MAP
 // ********************************************
