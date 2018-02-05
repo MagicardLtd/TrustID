@@ -194,8 +194,6 @@
       newURL = paramReplace('sub', newURL, sub);// var params = array();
       $(this).attr("href", newURL);
     });
-
-
   }
 
   function scrollToID(e) {
