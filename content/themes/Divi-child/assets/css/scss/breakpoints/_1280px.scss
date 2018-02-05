@@ -42,6 +42,9 @@ html {
     }
   }
   &.page_banner {
+    #banner_image {
+      margin-bottom: 40px;
+    }
     #banner_curve {
       &:after {
         display: block;
@@ -59,8 +62,9 @@ html {
       #banner_title, #banner_text {
         text-align: left;
       }
-      #banner_text {
+      p {
         width:100%;
+        text-align: left;
       }
     }
     #image_container {
@@ -280,10 +284,7 @@ html {
     z-index: 100;
     .et_pb_code_inner {
       @include container(100%);
-      form {
-        &.et_pb_contact_form {
-          margin-left: 0 !important;
-        }
+      .nf-form-layout {
         @include span(2 of 6);
         float: right;
         background-color: $white;
@@ -293,6 +294,14 @@ html {
         &:hover {
           @include material_box_shadow(3);
           @include translate (0, -5px);
+        }
+        &:before {
+          content:"Get in touch";
+          color: $trust-blue;
+          font-size: 2.5em;
+          font-weight: 700;
+          margin-bottom: 0.5em;
+          display: block;
         }
       }
     }

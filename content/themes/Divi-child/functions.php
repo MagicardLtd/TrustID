@@ -204,7 +204,7 @@ function feature_table_data($feature) {
 	$args = array(
 		'post_type'   => 'editions',
 		'post_status' => 'publish',
-		'orderby' => 'menu_order',
+		'order' 			=> 'ASC',
 	);
 	$editions = new WP_Query( $args );
 	if ( $editions->have_posts() ) :

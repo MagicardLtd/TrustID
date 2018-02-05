@@ -61,10 +61,8 @@ input[type=button] {
   }
 // }
 
-
-
 .siteForm {
-
+  padding:32px;
 }
 
 .et_pb_contact_field {
@@ -80,14 +78,7 @@ input[type=button] {
   }
 }
 .et_pb_contact_form {
-  &:before {
-    content:"Get in touch";
-    color: $trust-blue;
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    display: block;
-  }
+
 }
 .et_contact_bottom_container {
   float: none;

@@ -138,3 +138,30 @@
     }
   }
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border:none;
+  th, td {
+    text-align: left;
+    border: 1px solid lighten($trust-grey, 58%);
+    padding:16px !important;
+    font-size: 1em;
+    text-align: center;
+    color: $trust_lblue;
+    line-height: 1;
+    &:first-child {
+      color:$trust_blue;
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+  th {
+    border-bottom: 1px solid $trust_blue;
+    padding: 21px 16px !important;
+  }
+  tbody tr:nth-child(odd) {
+    background: $trust-bg-blue;
+  }
+}
