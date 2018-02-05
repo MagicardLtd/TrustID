@@ -162,8 +162,9 @@
 
   // function price_toggle() {
   function changeCurrency(flag) {
-    var val = flag.val();
-    var flagDefault = $('.edition_price').data('currency');
+    var val = flag.val(),
+      flagDefault = $('.edition_price').data('currency'),
+      url = $('.trialDownload');
     if (val != flagDefault) {
       $('.edition_price').data('currency', val);
       flag.addClass('selected');
@@ -184,22 +185,30 @@
       url = $('.trialDownload'),
       sub = $('.edition_price').data('subscription'),
       cur = $('.edition_price').data('currency'),
-      tag = (sub == 'monthly') ? '<small> /month</small>' : '<small> /annual</small>';
+      tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annualy</small>';
     price.each(function() {
       $(this).html($(this).data(sub+'-'+cur)+tag);
     });
     url.each(function() {
-      var newURL = updateURL($(this).attr("href"), sub, cur);
-      // $(this).attr("href", $.param(newURL));
-      $(this).attr("href", '&sub='+newURL['sub']+'&cur='+newURL['cur']);
-      // console.log($(this).attr("href"));
+      var newURL = paramReplace('cur', $(this).attr("href"), cur);
+      newURL = paramReplace('sub', newURL, sub);// var params = array();
+      $(this).attr("href", newURL);
     });
+
+
   }
 
   function scrollToID(e) {
   	$('html, body').animate({
   		scrollTop: $($(this).attr('href')).offset().top
   	}, 1250, 'easeInOutExpo');
+  }
+
+  function paramReplace(name, string, value) {
+    var re = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    delimeter = re.exec(string)[0].charAt(0),
+    newString = string.replace(re, delimeter + name + "=" + value);
+    return newString;
   }
 
   /*************************
@@ -211,7 +220,7 @@
     logo_swap();
     screensilder();
     popupgallery();
-    updatePrice();
+    // updatePrice();
     $('a[href*="#"]').on('click', function(e) {
       e.preventDefault();
       scrollToID();
