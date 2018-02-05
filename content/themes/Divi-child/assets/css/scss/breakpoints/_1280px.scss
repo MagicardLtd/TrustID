@@ -46,6 +46,8 @@ html {
       margin-bottom: 40px;
     }
     #banner_curve {
+      margin-bottom:50px;
+      z-index: 10;
       &:after {
         display: block;
         visibility: hidden;
@@ -351,10 +353,10 @@ html {
 .page-id-223 {
   #page-container {
     #et-main-area {
-      .banner_curve {
-        margin-bottom: 50px;
-        z-index: 10;
-      }
+      // .banner_curve {
+      //   margin-bottom: 50px;
+      //   z-index: 10;
+      // }
       #main-content {
         position: relative;
         z-index: 1;
