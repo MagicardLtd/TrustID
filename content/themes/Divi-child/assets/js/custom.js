@@ -210,13 +210,17 @@
   }
 
   function tabbar() {
-    $('#theTabs li').on('click', function() {
-      $('#theTabs  li.active').removeClass('active');
+    $("a", '#theTabs ul li').on('click', function(e) {
+      e.preventDefault();
+    });
+    $('#theTabs ul li').on('click', function() {
+      $('#theTabs ul li.active').removeClass('active');
       $('#theTabContent .tab-pane').removeClass('active');
       $(this).addClass('active');
-      var href = $("a", this).attr('href');
-      console.log(href);
-      $(href).addClass('active');
+      var tabPane = $(this).data('tab-pane');
+      // var href = $("a", this).attr('href');
+      // console.log(href);
+      $(tabPane).addClass('active');
     });
   }
 
@@ -230,10 +234,10 @@
     screensilder();
     popupgallery();
     tabbar();
-    // $('a[href*="#"]').on('click', function(e) {
-    //   e.preventDefault();
-    //   scrollToID();
-    // });
+    $('a[href*="#"]').on('click', function(e) {
+      e.preventDefault();
+      scrollToID();
+    });
     $("ul>li,ol>li").wrapInner("<span></span>");
     $('.currency').change(function() { changeCurrency($(this)) });
     $('#priceToggle').change(function() {

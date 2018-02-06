@@ -171,37 +171,48 @@ table {
 // ********************************************
 .tabbed-contaent {
   #theTabs {
-    @include container(100%);
-    list-style: none;
-    li {
-      @include span(1 of 6);
-      &:last-of-type {
-        @include span(1 of 6 last);
-      }
-      @include transition(all 0.5s);
+    border-bottom::1px solid lighten($trust-grey, 40%);
+    ul {
+      list-style: none;
       text-align: center;
-      border-bottom: 3px solid transparent;
-      padding: 20px 10px;
-      svg, span {
-        vertical-align: middle;
-        font-size: 1.1em;
-        color: $black;
-        font-weight: 500;
-      }
-      svg {
-        // border:7px solid lighten($trust-grey, 58%);
-        // background-color: lighten($trust-grey, 58%);
-        // border-radius: 50%;
-        color: $trust_blue;
-        margin-right: 17px;
-        // width:50px;
-        // height:50px;
-      }
-      &:hover {
-        background-color: $trust-bg-blue;
-      }
-      &.active {
-        border-color: $trust_blue;
+      @include container(90%);
+      li {
+        @include span(1 of 6);
+        @include transition(all 0.5s);
+        margin:0;
+        text-align: center;
+        border-bottom: 3px solid transparent;
+        padding: 20px 10px;
+        border-right:1px solid lighten($trust-grey, 40%);
+        cursor: pointer;
+        svg, span {
+          display:inline-block;
+          // vertical-align: middle;
+          font-size: 1.15em;
+          color: $black;
+          font-weight: 500;
+          width: 100%;
+        }
+        svg {
+          // border:7px solid lighten($trust-grey, 58%);
+          // background-color: lighten($trust-grey, 58%);
+          // border-radius: 50%;
+          color: $trust_blue;
+          margin-bottom: 25px;
+          width:50px;
+          height:50px;
+        }
+        &:last-of-type {
+          // @include span(1 of 6 last);
+          border-right: none;
+          margin:0;
+        }
+        &:hover {
+          background-color: $trust-bg-blue;
+        }
+        &.active {
+          border-bottom-color: $trust_blue;
+        }
       }
     }
   }
