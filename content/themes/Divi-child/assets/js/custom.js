@@ -209,6 +209,17 @@
     return newString;
   }
 
+  function tabbar() {
+    $('#theTabs li').on('click', function() {
+      $('#theTabs  li.active').removeClass('active');
+      $('#theTabContent .tab-pane').removeClass('active');
+      $(this).addClass('active');
+      var href = $("a", this).attr('href');
+      console.log(href);
+      $(href).addClass('active');
+    });
+  }
+
   /*************************
   All function are called here either on page load or scroll
   *************************/
@@ -218,11 +229,11 @@
     logo_swap();
     screensilder();
     popupgallery();
-    // updatePrice();
-    $('a[href*="#"]').on('click', function(e) {
-      e.preventDefault();
-      scrollToID();
-    });
+    tabbar();
+    // $('a[href*="#"]').on('click', function(e) {
+    //   e.preventDefault();
+    //   scrollToID();
+    // });
     $("ul>li,ol>li").wrapInner("<span></span>");
     $('.currency').change(function() { changeCurrency($(this)) });
     $('#priceToggle').change(function() {

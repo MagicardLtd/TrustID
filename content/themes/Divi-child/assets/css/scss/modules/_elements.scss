@@ -165,3 +165,51 @@ table {
     background: $trust-bg-blue;
   }
 }
+
+// ********************************************
+// TABS
+// ********************************************
+.tabbed-contaent {
+  #theTabs {
+    @include container(100%);
+    list-style: none;
+    li {
+      @include span(1 of 6);
+      &:last-of-type {
+        @include span(1 of 6 last);
+      }
+      @include transition(all 0.5s);
+      text-align: center;
+      border-bottom: 3px solid transparent;
+      padding: 20px 10px;
+      svg, span {
+        vertical-align: middle;
+        font-size: 1.1em;
+        color: $black;
+        font-weight: 500;
+      }
+      svg {
+        // border:7px solid lighten($trust-grey, 58%);
+        // background-color: lighten($trust-grey, 58%);
+        // border-radius: 50%;
+        color: $trust_blue;
+        margin-right: 17px;
+        // width:50px;
+        // height:50px;
+      }
+      &:hover {
+        background-color: $trust-bg-blue;
+      }
+      &.active {
+        border-color: $trust_blue;
+      }
+    }
+  }
+  #theTabContent
+  .tab-pane {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
