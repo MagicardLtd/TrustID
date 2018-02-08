@@ -197,6 +197,13 @@ table {
       }
     }
   }
+  &.features {
+    th, td {
+      &:first-child {
+        width:40%;
+      }
+    }
+  }
 }
 
 // ********************************************
@@ -245,6 +252,11 @@ table {
         }
         &.active {
           border-bottom-color: $trust_blue;
+        }
+      }
+      &.compare {
+        li {
+          @include span (1 of 11);
         }
       }
     }
