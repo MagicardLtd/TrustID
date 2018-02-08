@@ -287,8 +287,9 @@ function editions_overview() {
 			$html .= '<header>'."\n";
 			$html .= '<span class="edition_price" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
 			if ($sub != 'purchase') {
-				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small></span>'."\n";
+				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small>'."\n";
 			}
+			$html .= "</span>\n"
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
 			$html .= get_field('edition_overview');
