@@ -257,6 +257,7 @@ table {
       &.compare {
         li {
           @include span (1 of 11);
+          margin:0;
         }
       }
     }
