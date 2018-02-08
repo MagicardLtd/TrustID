@@ -258,6 +258,14 @@ table {
         li {
           @include span (1 of 11);
           margin:0;
+          span {
+            font-size:1em;
+          }
+          svg {
+            width:32px;
+            height:32px;
+            margin-bottom:12px;
+          }
         }
       }
     }
