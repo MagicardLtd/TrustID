@@ -286,14 +286,16 @@ function editions_overview() {
 			$html .= '<section class="edition paper '.$class.'">'."\n";
 			$html .= '<header>'."\n";
 			$html .= '<span class="edition_price" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
-			$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small></span>'."\n";
+			if ($sub != 'purchase') {
+				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small></span>'."\n";
+			}
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
 			$html .= get_field('edition_overview');
 			if (!$getPost) {
 				$html .= '<footer>'."\n";
 				$trialUrl = get_the_permalink(get_field('trial_form', 'option', false)).'&ver='.get_the_ID().'&verName='.get_the_title().'&cur=usd&sub=monthly';
-				$buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'&ver='.get_the_ID().'&verName='.get_the_title();
+				$buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'&ver='.get_the_ID().'&verName='.get_the_title().'&sub=purchase';
 				$html .= '<a href="'.$trialUrl.'" class="blueBtn trialDownload">download FREE trial</a>'."\n";
 				$html .= '<span>or</span>'."\n";
 				$html .= '<a href="'.$buyUrl.'" class="blueBtn editionDownload">Purchase</a>'."\n";
