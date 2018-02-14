@@ -185,7 +185,7 @@
       url = $('.trialDownload'),
       sub = $('.edition_price').data('subscription'),
       cur = $('.edition_price').data('currency'),
-      tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annualy</small>';
+      tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annually</small>';
     price.each(function() {
       $(this).html($(this).data(sub+'-'+cur)+tag);
     });

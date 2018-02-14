@@ -275,7 +275,7 @@ function editions_overview() {
 			$html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
 			$html .= '<div class="toggle-input">'."\n";
 			$html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
-			$html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annualy</span>'."\n";
+			$html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annually</span>'."\n";
 			$html .= '</div>'."\n"; // Close toggle-input
 			$html .= '</div>'."\n"; // Close selectSub
 			$html .= '</div>'."\n"; // Close pricing_options
