@@ -285,7 +285,7 @@ function editions_overview() {
 			$sub = (isset($_GET['sub'])) ? $_GET['sub'] : 'monthly';
 			$html .= '<section class="edition paper '.$class.'">'."\n";
 			$html .= '<header>'."\n";
-			$html .= '<span class="edition_price" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
+			$html .= '<span class="edition_price" data-monthly-eur="'.get_field('monthly_EUR').'" data-annualy-eur="'.get_field('annual_EUR').'" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
 			if ($sub != 'purchase') {
 				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small>'."\n";
 			}
