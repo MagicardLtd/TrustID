@@ -126,6 +126,11 @@
       &:nth-child(even) {
         background-color: $trust-bg-blue;
       }
+      &.extra {
+        span {
+          color:$trust_blue;  
+        }
+      }
     }
   }
   footer {
