@@ -289,6 +289,7 @@ function editions_overview() {
 			if ($sub != 'purchase') {
 				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small>'."\n";
 			}
+			$html .= "";
 			$html .= "</span>\n";
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
