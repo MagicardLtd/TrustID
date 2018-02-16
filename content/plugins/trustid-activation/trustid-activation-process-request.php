@@ -3,6 +3,10 @@
   $responseCode = generateResponseCode('KAG6FYBT6BNEWBGL2FBNKN');
 ?>
 
+<?php
+  header('HTTP/1.0 200 OK');
+  header('Content-type: application/xml');
+?>
 <?xml version="1.0" encoding="utf-8"?> <Activation
 Status="0" ResponseCode="<?php echo $responseCode; ?>" ProtocolVersion="2" RequestCode="KAG6FYBT6BNEWBGL2FBNKN" FirstName="Joe"
 LastName="Blow" Organization="Contoso Ltd." Email="joe@example.com" CountryCode="USA"
