@@ -12,12 +12,11 @@
 
   function tid_process_request($web = false) {
 
-    
-    // for gmp_test
-    $requestCode = 'KAAFBO44BBIAB53F67FA3X';
-    $responseCode = 'FDHY589933FG';
+    $requestCode = $_POST['RequestCode'];
+    require_once dirname(__FILE__).'/trustid-activation-request-response.php';
+    $responseCode = generateResponseCode($requestCode);
     $email = 'test@test.com';
-    $status = 3;
+    $status = 0;
 
     header('HTTP/1.0 200 OK');
     header('Content-type: application/xml');
@@ -33,6 +32,5 @@
     }
     echo 'Status="' . $status . '" />';
   }
-
 
 ?>
