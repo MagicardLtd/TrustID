@@ -1,5 +1,10 @@
+<?php
+  require_once dirname(__FILE__).'/trustid-activation-request-response.php';
+  $responseCode = generateResponseCode('KAG6FYBT6BNEWBGL2FBNKN');
+?>
+
 <?xml version="1.0" encoding="utf-8"?> <Activation
-Status="0" ResponseCode="BT665BZY5OFMC" ProtocolVersion="2" RequestCode="KAAFBO44BBIAB53F67FA3X" FirstName="Joe"
+Status="0" ResponseCode="<?php echo $responseCode; ?>" ProtocolVersion="2" RequestCode="KAG6FYBT6BNEWBGL2FBNKN" FirstName="Joe"
 LastName="Blow" Organization="Contoso Ltd." Email="joe@example.com" CountryCode="USA"
 />
 
