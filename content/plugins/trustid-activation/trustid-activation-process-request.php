@@ -1,6 +1,11 @@
 <?php
+  if (!empty($_REQUEST['RequestCode'])) {
+    $requestCode = $_REQUEST['RequestCode'];
+  } else if (!empty($_REQUEST['SignUp'])) {
+    $requestCode = $_REQUEST['SignUp'];
+  }
   require_once dirname(__FILE__).'/trustid-activation-request-response.php';
-  $responseCode = generateResponseCode('KAG6FYBT6BNEWBGL2FBNKN');
+  $responseCode = generateResponseCode($requestCode);
 ?>
 
 <?php
@@ -8,7 +13,7 @@
   header('Content-type: application/xml');
 ?>
 <?xml version="1.0" encoding="utf-8"?> <Activation
-Status="0" ResponseCode="<?php echo $responseCode; ?>" ProtocolVersion="2" RequestCode="KAG6FYBT6BNEWBGL2FBNKN" FirstName="Joe"
+Status="0" ResponseCode="<?php echo $responseCode; ?>" ProtocolVersion="2" RequestCode="<?php echo $requestCode; ?>" FirstName="Joe"
 LastName="Blow" Organization="Contoso Ltd." Email="joe@example.com" CountryCode="USA"
 />
 
