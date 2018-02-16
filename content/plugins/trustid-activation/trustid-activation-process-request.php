@@ -19,18 +19,17 @@
 //
 //      (where each "*" character in the XML header above is a "?" character)
 
-require_once(dirname(__FILE__)."/../../../wp/wp-load.php");
+// require_once(dirname(__FILE__)."/../../../wp/wp-load.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
-    if (!isset($bypassPostCheck))
-        tid_process_request();
-else if (!isset($bypassPostCheck))
-{
-    header('HTTP/1.0 405 Method Not Allowed');
-    header('Allow: POST');
-    header('Content-type: text/html');
-
-    echo '<!DOCTYPE html><html><body><p>405 Method Not Allowed</p></body></html>';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (!isset($bypassPostCheck)) {
+    tid_process_request();
+  }
+} else if (!isset($bypassPostCheck)) {
+  header('HTTP/1.0 405 Method Not Allowed');
+  header('Allow: POST');
+  header('Content-type: text/html');
+  echo '<!DOCTYPE html><html><body><p>405 Method Not Allowed</p></body></html>';
 }
 
 
