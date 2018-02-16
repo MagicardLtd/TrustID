@@ -1,9 +1,10 @@
 <?php
-  if (!empty($_REQUEST['RequestCode'])) {
-    $requestCode = $_REQUEST['RequestCode'];
-  } else if (!empty($_REQUEST['SignUp'])) {
-    $requestCode = $_REQUEST['SignUp'];
-  }
+  // if (!empty($_REQUEST['RequestCode'])) {
+  //   $requestCode = $_REQUEST['RequestCode'];
+  // } else if (!empty($_REQUEST['SignUp'])) {
+  //   $requestCode = $_REQUEST['SignUp'];
+  // }
+  $requestCode = $_POST['RequestCode'];
   require_once dirname(__FILE__).'/trustid-activation-request-response.php';
   $responseCode = generateResponseCode($requestCode);
 ?>
