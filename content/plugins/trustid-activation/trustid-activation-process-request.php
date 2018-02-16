@@ -19,7 +19,7 @@
 //
 //      (where each "*" character in the XML header above is a "?" character)
 
-// require_once(dirname(__FILE__)."/../../../wp-load.php");
+require_once(dirname(__FILE__)."/../../../wp/wp-load.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
     if (!isset($bypassPostCheck))

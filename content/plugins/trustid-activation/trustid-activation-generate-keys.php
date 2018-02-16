@@ -8,8 +8,8 @@
 	global $displayKeys;
     if (isset($displayKeys))
         include('trustid-activation-keys.php');
-    
-	$url = "/wp-admin/admin.php?";
+
+	$url = "/wp/wp-admin/admin.php?";
     foreach($_GET as $key=>$value)
     {
 		if (strpos($key,"search") === false)
@@ -79,7 +79,7 @@
 				<br>&nbsp;<br>
 			</li>
 			<li>
-				
+
 				<label for="upgrading">Upgrading from Classic or Pro?</label>
 				<select name="upgrading" onchange="addInput('upgrading',this.value);">
 					<option value="" selected  > </option>
@@ -89,7 +89,7 @@
 				<br><span class="hint">Upgrading from a lower edition?</span>
 				<br>
 			</li>
-			
+
 			<div id="originalKeyArea">
 			<br>
 			</div>
@@ -104,14 +104,14 @@
 	</form>
 
 	</html>
-	
+
 	<script>
-	
+
 	var quantity = 0; //The quantity of new keys required.
 	var upgrading = 0;  //0 = new keys are NOT upgrades, 1 = new keys ARE upgrades.
 	var edition = ""; //The required edition of the new keys.
 	var counter = 0;  //Holds a count of new input fields that are created for any keys that are to be upgraded.
-	
+
 	function newEdition(val){
 		edition = val;  				//If the required edition is changed...
 		for (var i=0; i<counter; i++){  //...initiate re-validation of each original key to be upgraded (if any)
@@ -121,8 +121,8 @@
 			document.getElementById("edition").focus();
 		}
 	}
-	
-	function addInput(field, val){ 
+
+	function addInput(field, val){
 	if (field == "qty"){
 		quantity = val;
 	}
@@ -148,7 +148,7 @@
 		}
 	}
 	}
-	
+
 	function checkKey(str,boxNo) {  //Test that the entered value is a valid original activation key...
 	if (str == "") {
 		document.getElementById("txtHint"+boxNo).innerHTML = ">&nbsp;&nbsp;&nbsp;Key info will be listed here...";
@@ -187,7 +187,7 @@
 		}
 	}
 	}
-	
+
 	function duplicateCheck(str,boxNo){
 		for (var i=0; i<counter; i++){
 			if (i != boxNo){
@@ -198,25 +198,25 @@
 			}
 		}
 		return false;
-	}	
-	
-	
+	}
+
+
 	jQuery.validator.addMethod("validKey",function(value,element,param)
 	{  //Add a new validation method to the form validator (to stop the form being submitted if the entered keys aren't valid)
 		var fieldID = element.name;
                 var posStart = fieldID.search("[")+1;
 		var posEnd = fieldID.search("]")-1;
 		var fieldNo = fieldID.substring(posStart,posEnd);
-		var hint = document.getElementById("txtHint"+fieldNo).innerHTML;	
+		var hint = document.getElementById("txtHint"+fieldNo).innerHTML;
 		var str = "OK! This is a valid";
 		if(hint.search(str) >=0)
 		{
 			return true;
 		}
-		return false;    
+		return false;
 	},"Please enter a valid Activation Key...");
-	
-	
+
+
 	jQuery( "#generate-keys" ).validate({
 		onkeyup: true,
 		rules: {
@@ -247,18 +247,17 @@
 			required: true,
 			digits: true,
 			range: [0,1]
-			}, 
-			originalKey:{ 
-			required:true, 
+			},
+			originalKey:{
+			required:true,
 			validKey:true
 			}
 		}
 	});
-	
+
 
 	jQuery( "generate" ).click(function() {
 		return confirm('Are you sure you want to generate ' + form.qty.value + ' key(s)?')
 	});
 	</script>
 </div>
-

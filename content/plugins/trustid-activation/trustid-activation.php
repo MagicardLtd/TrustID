@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 /**
  * Plugin Name: TrustID Activation
@@ -55,7 +56,7 @@ if (!empty($_POST['generate']))
 
 	if ($_POST['upgrading'] == 1 && $_POST['qty'] >0 && $_POST['qty'] <=100) //Also check if any keys are to be upgraded
 	{
-		//are any of them duplicated?
+		//are any of them duplicated?	
 		if(count(array_unique($_POST['originalKey']))<count($_POST['originalKey']))
 			$error = true;
 		//are all of them valid keys?
@@ -66,9 +67,9 @@ if (!empty($_POST['generate']))
 			{
 				$error = true;
 				break 1;
-			}
+			}				
 		}
-
+		
 	}
 
     // ok done validating now lets generate keys.
@@ -88,7 +89,7 @@ if (!empty($_POST['generate']))
 				$displayKeys[$i]['originalKey'] = $_POST['originalKey'][$i];
 
 
-			$wpdb->insert(
+			$wpdb->insert(  
 				$table_name,
 				array(
 					'registrationKey' => $dashedKey,
@@ -136,7 +137,7 @@ function trustid_activate_validateKey($key, $newEdition){
 	global $wpdb, $table_name;
     //1st - check that the Key matches the key 'type' pattern
 	$pattern = '/^([0-9]{4})-([0-9]{4})-([0-9]{4})-([0-9]{4}$)/';
-	if (empty($key) || !preg_match($pattern,$key))
+	if (empty($key) || !preg_match($pattern,$key))  
 	{
 		$results["result"] = "Invalid Key";
 		return $results;
@@ -148,7 +149,7 @@ function trustid_activate_validateKey($key, $newEdition){
 		$results["result"] = "Invalid Key";
 		return $results;
 	}
-	//3rd - Check the Key's edition is lower than the edition of the new key(s) to be created
+	//3rd - Check the Key's edition is lower than the edition of the new key(s) to be created 
 	if($keyData->editionId >= $newEdition)
 	{
 		$results["result"] = "Invalid edition";
@@ -668,7 +669,7 @@ function trustid_activate_shortcode($atts = array(), $content=null, $code="") {
 		var n = textUpper.localeCompare(value);
 		if(n <=0)
 			return true;
-		return false;
+		return false;    
 	},"Upper case characters only!");
 
     jQuery( "#activate" ).validate({

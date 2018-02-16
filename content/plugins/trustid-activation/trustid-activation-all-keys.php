@@ -17,9 +17,9 @@
 //  Start session and check if session data needs to be retrieved
 //---------------------------------------------------------------------------------
 
-	// if (!session_id())
-	// 	session_start();
-
+	if (!session_id())
+		session_start();
+	
 	if (empty($_POST['searchField'])&& empty($_POST['perPage']))
 	{ //This must be a new page, so check if there's any session data to carry across from previous page
 		if (!empty($_GET[registrationkey]))
@@ -37,7 +37,7 @@
 			if (isset($_SESSION['skTo']))
 				$_POST['to'] = $_SESSION['skTo'];
 		}
-
+		
 		if (!empty($_SESSION['skHiddenColumns']))
 		{
 			$hiddenColumns = $_SESSION['skHiddenColumns'];
@@ -57,7 +57,7 @@
 			}
 		if (!empty($_SESSION['skPerPage']))
 			$_POST['perPage'] = $_SESSION['skPerPage'];
-		else
+		else  
 			$_POST['perPage'] = "50"; //There's no session data so set default rows per page at 50
 	}
 	else
@@ -66,7 +66,7 @@
 			$hiddenColumns = $_SESSION['skHiddenColumns'];
 		else
 			$hiddenColumns = array();
-
+		
 		if(!empty($_POST['hideColumn']))
 		{
 			foreach($_POST['hideColumn'] as $col)
@@ -82,11 +82,11 @@
 //---------------------------------------------------------------------------------
 //  Determine Search criteria
 //---------------------------------------------------------------------------------
-
+	
 	// set initial date range
 	$from = "0" ;
 	$to = time();
-
+	
 	// If a search field is selected, set appropriate search values
 	if(!empty($_POST['searchField']))
 	{
@@ -103,7 +103,7 @@
 				unset($_POST['to']);
 				unset($_SESSION['skTo']); // clear this session data
 				break;
-
+		
 			case "issued":
 				unset($_POST['searchTerm']);
 				unset($_SESSION['skSearchTerm']); // clear this session data
@@ -118,7 +118,7 @@
 					$_SESSION['skTo'] = $_POST['to']; // store session data
 				}
 				break;
-
+				
 			case "registrationKey":
 				unset($_POST['from']);
 				unset($_SESSION['skFrom']); // clear this session data
@@ -134,13 +134,13 @@
 					$_SESSION['skSearchTerm'] = $_POST['searchTerm']; // store session data
 				}
 				break;
-
+			
 			default:
 				unset($_POST['from']);
 				unset($_SESSION['skFrom']); // clear this session data
 				unset($_POST['to']);
 				unset($_SESSION['skTo']); // clear this session data
-				if (isset($_POST['searchTerm']))
+				if (isset($_POST['searchTerm'])) 
 				{
 					$searchTerm = "%".$_POST['searchTerm']."%";
 					$_SESSION['skSearchTerm'] = $_POST['searchTerm']; // store session data
@@ -152,22 +152,22 @@
 //  Retrieve data from database (filtered by search criteria) into a temporary table
 //  Then set columns to display
 //---------------------------------------------------------------------------------
-
+	
 	//Set the selection criteria for the database SELECT query
     if (!empty($searchField) && !empty($searchTerm))
-		$writeSearchField = 'WHERE '.$searchField.' LIKE %s AND issued BETWEEN %d AND %d';
+		$writeSearchField = 'WHERE '.$searchField.' LIKE %s AND issued BETWEEN %d AND %d'; 
 	else
 	{
 		$writeSearchField = 'WHERE id LIKE %s AND issued BETWEEN %d AND %d';
 		$searchTerm = "%%";
 	}
-
+	
 	//Prepare and do the database query
 	if (!empty($writeSearchField) && !empty($searchTerm))
 	{
         //Set what info the user has rights to view
 		$restricted_info = "";
-
+		
         if (current_user_can("view_PII"))
 		{
 			$columns=array(
@@ -204,9 +204,9 @@
                 'copyId'=>__('Copy ID'),
                 'active'=>__('Status')
             );
-			$restricted_info = "";
+			$restricted_info = ""; 
 		}
-
+	
 		//Do the SELECT query
 		$items = $wpdb->get_results($wpdb->prepare("SELECT
 		id,
@@ -246,7 +246,7 @@
 		FROM $table_name
 		$writeSearchField",$searchTerm,$from,$to), ARRAY_A);
 	}
-
+	
 	//If user has the correct rights, add a column to enable Allow/Block Activation
 	if (!empty($items) && current_user_can("view_PII"))
     {
@@ -271,12 +271,12 @@
     else
         $display_items = $items;
 
-
+	
     global $displayKeys;
     if (isset($displayKeys))
         include('trustid-activation-keys.php');
-
-
+	
+	
 	//Tidy up the hidden columns
 	if($_POST['showAll'] == "show all")
 	{
@@ -289,13 +289,13 @@
 		if(!isset($hiddenColumns))
 			$hiddenColumns = array();
 	}
-
+	
 	session_write_close(); //Releases the session (but doesn't clear it).
 
 //---------------------------------------------------------------------------------
 //  Export and Page housekeeping
 //---------------------------------------------------------------------------------
-
+		
     if (isset($_GET['download']) || isset($_POST['download']))
     {
         tid_do_csv($items,"trustid-keys");
@@ -341,36 +341,36 @@
 		background-color: transparent;
 		border:0;
 		}
-
+		
 		#hideColumns:hover{
 		color:red;
 		font-style: italic;
 		}
-
+		
 		#showAll {
 		color: blue;
 		text-decoration: underline;
 		background-color: transparent;
 		border:0;
 		}
-
+		
 		#showAll:hover{
 		color:red;
 		font-style: italic;
 		}
 	</style>
-
+	
     <div id="SearchArea">
 		<label for="searchField">Search for a </label><select id="searchField" name="searchField" onchange="addSearchTermField(this.value);">
-			<?php
+			<?php 
 			//Create options for the search select box
 			if(empty($_POST['searchField']))
 				echo '<option value="">select...</option>';
 			else
-				echo '<option value="removesearch">Remove search?</option>';
+				echo '<option value="removesearch">Remove search?</option>'; 	
 			?>
 			<option value="registrationKey" <?php if($_POST['searchField'] == "registrationKey") echo 'selected';?> >Activation Key</option>
-			<?php if($restricted_info == "distributor,") ?>
+			<?php if($restricted_info == "distributor,") ?> 
 				<option value="distributor" <?php if($_POST['searchField'] == "distributor") echo 'selected';?> >Distributor</option>
 			<option value="purpose" <?php if($_POST['searchField'] == "purpose") echo 'selected';?> >Purpose</option>
 			<option value="issued" <?php if($_POST['searchField'] == "issued") echo 'selected';?> >Issued Date/Time</option>
@@ -380,7 +380,7 @@
 			<option value="active" <?php if($_POST['searchField'] == "active") echo 'selected';?> >Status</option>
 		</select>
 		<?php
-
+		
 		// create search box(es) for a selectable option, a date range or a text term search
 		if(!empty($_POST['searchField']))
 		{
@@ -400,7 +400,7 @@
 				unset($_POST['from']);
 				unset($_POST['to']); ?>
 				<label for="searchTerm"> containing ... </label> <?php
-
+				
 				Switch($_POST['searchField']){
 					case "purpose":
 						?>
@@ -452,7 +452,7 @@
 		<br><br>
 	</div>
 
-
+	
 	<?php
     $display_table = new Generic_Admin_List_Table(
         $display_items          // items
@@ -465,17 +465,17 @@
 			'searchUrl' => $searchUrl,
         )
 		,$hiddenColumns
-    );
-
-
+    );	
+	
+	
     //Prepare Table of elements and render
     $display_table->prepare_items()->display();
     ?>
     <br>&nbsp;<br>
-
+	
     </form>
-
-
+	
+	
 	<script type="text/javascript">
 
 	jQuery(document).ready(function() {
@@ -483,7 +483,7 @@
 			dateFormat : 'yy-mm-dd'
 		});
 	});
-
+	
 	function addSearchTermField(searchVal){
 		if ($('#searchTerm').length > 0 || $('#from').length > 0){  // if the searchTerm fields exist, remove them.
 			$("#searchFilter").remove();
@@ -523,7 +523,7 @@
 					default:
 						searchFilter.innerHTML = '<label for="searchTerm"> containing ... </label> <input class="send" type="text" id="searchTerm" name="searchTerm" > &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" onclick="submitSearch()" value="Show results">';
 				}
-
+				
 				//searchFilter.innerHTML = "<font for='searchTerm' id='txt2' > containing ... </font> <input type='text' id='searchTerm' //name='searchTerm'> <font for='searchTerm' id='txt2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> <input type='submit' //id='btn1' name = 'search' value='Show results'>";
 				$('#searchField').after(searchFilter);
 				$('#searchTerm').focus();
@@ -536,5 +536,6 @@
 		document.getElementById("search_keys").submit();
 	}
     </script>
-
+	
 </div>
+	

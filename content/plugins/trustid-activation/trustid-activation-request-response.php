@@ -37,7 +37,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 {
 
 	global $wpdb, $table_name, $table_name_activations, $activationId,$key;
-	
+
 	$result = array('installed'=>'N/A', 'status' => '');
 
 	// Verify Length
@@ -118,14 +118,14 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
     // Convert it to a string.
     $timestampBase10Str = implode($timestampBase10Array);
 
-    // Split the string into two parts: one containing the number of whole // seconds elapsed since the epoch began, and the other one containing the 
+    // Split the string into two parts: one containing the number of whole // seconds elapsed since the epoch began, and the other one containing the
 	// number of leftover milliseconds.
     $timestampSecondsStr = substr($timestampBase10Str, 0, -3);
 	$timestampMillisecondsStr = substr($timestampBase10Str, -3);
 
-    // Use a PHP DateTime object to help format the timestamp. Note that // DateTime does not support fractional seconds, so we must initialize it 
+    // Use a PHP DateTime object to help format the timestamp. Note that // DateTime does not support fractional seconds, so we must initialize it
 	// with just the number of whole seconds elapsed since the epoch began.
-    // Warning: Do not use the contents of this DateTime object as the whole 
+    // Warning: Do not use the contents of this DateTime object as the whole
 	// timestamp, since that would lose a huge amount of precision.
     $timestamp = new DateTime(TIMESTAMP_EPOCH);
 	$timestamp->add(new DateInterval('PT' . $timestampSecondsStr . 'S'));
@@ -134,7 +134,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 
     // Format the timestamp, manually tacking on the milliseconds at the end.
     $formattedTimestamp = $timestamp->format('Y-m-d H:i:s') . '.' .$timestampMillisecondsStr;
-	
+
 	$result['installed'] = $formattedTimestamp;
 
 
@@ -151,6 +151,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	// No record of this being a valid copy id
 	if (empty($key))
 	{
+		echo "no key";
 		$result['status'] = 3;
 		return $result;
 	}
@@ -159,6 +160,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	// Brand mismatch
 	if (!isset($key->brandId) || $key->brandId != $brandID)
 	{
+		echo "brand error";
 		$result['status'] = 3;
 		return $result;
 	}
@@ -166,6 +168,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	// Edition Mismatch
 	if (!isset($key->editionId) || $key->editionId != $editionID)
 	{
+		echo "edition error";
 		$result['status'] = 3;
 		return $result;
 	}
@@ -173,6 +176,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	// Upgrade mismatch
 	if (!isset($key->upgradeId) || $key->upgradeId != $upgradeID)
 	{
+		echo "upgrade error";
 		$result['status'] = 3;
 		return $result;
 	}
@@ -180,6 +184,7 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	// Check if activation is allowed with this key (blocked or already used)
 	if (!isset($key->active) || $key->active != 1)
 	{
+		echo "blocked";
 		$result['status'] = 3;
 		return $result;
 	}
@@ -227,29 +232,29 @@ define('TIMESTAMP_EPOCH', '2013-01-01 00:00:00');
 	$now1 = new DateTime($now);
 	$interval = $now1->diff($timestamp); // get the difference between now and the reported installation time & date
 	$daysDiff = $interval->format('%R%a'); //turn it into number of days difference
-	
-	if($daysDiff < 30)  
+
+	if($daysDiff < 30)
 		$wpdb->query($wpdb->prepare("UPDATE $table_name SET active = 0 WHERE id = %d",$key->id));
-	
+
 	//$wpdb->query($wpdb->prepare("UPDATE $table_name SET active = 0 WHERE id = %d",$key->id));
 	// ********
 
 	// Set the firstUsedDate for this key if not already set
 	//if (!isset($key->firstUsed))
 	//$wpdb->query($wpdb->prepare("UPDATE $table_name SET firstUsed = time() WHERE id = %d",$key->id));
-	
+
 	// Increment the number of activations for this key
 	$activations = $key->activationCount;
 	$activations = ++$activations;
 	$wpdb->query($wpdb->prepare("UPDATE $table_name SET activationCount =  $activations WHERE id = %d",$key->id));
-	
+
 	$activationId = $wpdb->insert_id;
 
 	// If no problems have been encountered up to this point, the request code appears valid
-	
+
 	$result['status'] = 0;
 	return $result;
-	
+
 }
 
 // Generates an appropriate response code for the given registration key and request code
@@ -380,5 +385,3 @@ define('CHUNK_SIZE', 2);	// 2 hex nibbles = 8 bits (chosen in case of byte-order
 	}
 	return array_reverse($output);	// Make it big-endian
 }
-
-
