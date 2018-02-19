@@ -43,7 +43,7 @@ html {
   }
   &.page_banner {
     #banner_img {
-      margin-bottom: 50px;
+      margin-bottom: 65px;
     }
     #banner_curve {
       margin-bottom:50px;
@@ -314,7 +314,7 @@ html {
 // PRE FOOTER
 // ********************************************
 #footerContacts {
-  padding: 200px 0;
+  padding: 230px 0;
   .contact {
     .et_pb_blurb_content {
       @include container(100%);
