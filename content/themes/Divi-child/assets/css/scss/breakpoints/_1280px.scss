@@ -16,7 +16,7 @@ html {
 // ********************************************
 #banner_container {
   #banner_curve, #banner_img {
-    #banner_content {
+    #banner_content, #banner_page_content {
       max-width: 1000px;
       padding-top: 150px;
       #banner_title {
@@ -33,22 +33,26 @@ html {
         margin-bottom:1.5em;
       }
     }
+    #banner_page_content {
+      text-align: left;
+      max-width: 1280px;
+      // padding-bottom: 0;
+      #banner_title, #banner_text {
+        text-align: left;
+      }
+      p {
+        width:100%;
+        text-align: left;
+      }
+      #image_container {
+        position:absolute;;
+        top:auto;
+        margin-left: auto;
+        margin-right: auto;
+        right: 0;
+      }
+    }
   }
-   &.page_banner {
-     #banner_curve, #banner_img {
-       #banner_content {
-         text-align: left;
-         max-width: 1280px;
-         #banner_title, #banner_text {
-           text-align: left;
-         }
-         p {
-           width:100%;
-           text-align: left;
-         }
-       }
-     }
-   }
 //     margin-bottom: 171px;
 //     #heroImg {
 //       // bottom: -70px;

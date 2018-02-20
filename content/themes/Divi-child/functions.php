@@ -127,7 +127,7 @@ function page_banner($id) {
 	$html = '<div id="banner_container" class="page_banner">';
 	$html .= $style;
 	$html .= '<div id="banner_curve">';
-	$html .= '<section id="banner_content" class="et_pb_row et_pb_row_0">'."\n";
+	$html .= '<section id="banner_page_content" class="et_pb_row et_pb_row_0">'."\n";
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
 	$html .= '<div class="test_box et_pb_column et_pb_column_1_2">'."\n";
 	$html .= '<p id="banner_text">'.$data['text'].'</p>'."\n";
@@ -136,7 +136,7 @@ function page_banner($id) {
 	}
 	$html .= "</div>\n";
 	$html .= '<div id="image_container" class="test_box et_pb_column et_pb_column_1_2">'."\n";
-	$html .= '<img id="pageHeroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
+	$html .= '<img id="heroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
 	$html .= 'sizes="'.esc_attr( $img_size ).'" alt="'.esc_attr( $img_alt ).'">'."\n";
 	$html .= '</div>'."\n";
 	$html .= "</section>\n";
