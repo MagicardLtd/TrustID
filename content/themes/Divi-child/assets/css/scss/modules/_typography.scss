@@ -65,14 +65,8 @@ p {
   line-height: 1.25;
 }
 
-
-
-
-// a, %alink {
-  // text-decoration:none;
-  // color:$wf-lblue;
-  // &:hover,&:focus {
-    // text-decoration:none;
-    // color:darken($wf-lblue,5%);
-  // }
-// }
+small {
+  font-size: 0.9em;
+  color:$trust-blue;
+  line-height: 1;
+}

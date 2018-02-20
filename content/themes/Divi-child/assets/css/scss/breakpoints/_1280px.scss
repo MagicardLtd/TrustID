@@ -16,70 +16,102 @@ html {
 // ********************************************
 #banner_container {
   #banner_curve, #banner_img {
-    margin-bottom: 171px;
-    #heroImg {
-      // bottom: -70px;
-    }
-  }
-  #banner_img {
-    background-size: 100%;
-  }
-  #banner_content {
-    max-width: 1000px;
-    padding-top: 150px;
-    #banner_title {
-      font-weight: 900;
-      font-size:3.75em;
-      line-height: 1.25em;
-    }
-    #banner_text {
-      font-size: 1em;
-      margin-bottom: 1.5em;
-    }
-    #banner_btn {
-      font-size: 1.25em;
-      margin:0.5em 0;
-    }
-  }
-  &.page_banner {
-    #banner_img {
-      margin-bottom: 65px;
-    }
-    #banner_curve {
-      margin-bottom:50px;
-      z-index: 10;
-      &:after {
-        display: block;
-        visibility: hidden;
-        clear: both;
-        width: 0;
-        height: 0;
-        line-height: 0;
-        content: ".";
-      }
-    }
     #banner_content {
-      text-align: left;
-      max-width: 1280px;
-      #banner_title, #banner_text {
-        text-align: left;
+      max-width: 1000px;
+      padding-top: 150px;
+      #banner_title {
+        font-weight: 900;
+        font-size:3.75em;
+        line-height: 1.25em;
       }
-      p {
-        width:100%;
-        text-align: left;
+      #banner_text {
+        font-size: 1em;
+        margin-bottom: 1.5em;
       }
-    }
-    #image_container {
-      position: relative;
-      display: inline-block;
-      #pageHeroImg {
-        display: block;
-        margin: -30px auto -135px;
-        margin: 0 auto -100px;
-        vertical-align: middle;
+      #banner_btn {
+        font-size: 1.25em;
+        margin-bottom:1.5em;
       }
     }
   }
+   &.page_banner {
+     #banner_curve, #banner_img {
+       #banner_content {
+         text-align: left;
+         max-width: 1280px;
+         #banner_title, #banner_text {
+           text-align: left;
+         }
+         p {
+           width:100%;
+           text-align: left;
+         }
+       }
+     }
+   }
+//     margin-bottom: 171px;
+//     #heroImg {
+//       // bottom: -70px;
+//     }
+//   }
+//   #banner_img {
+//     background-size: 100%;
+//   }
+//   #banner_content {
+//     max-width: 1000px;
+//     padding-top: 150px;
+//     #banner_title {
+//       font-weight: 900;
+//       font-size:3.75em;
+//       line-height: 1.25em;
+//     }
+//     #banner_text {
+//       font-size: 1em;
+//       margin-bottom: 1.5em;
+//     }
+//     #banner_btn {
+//       font-size: 1.25em;
+//       margin:0.5em 0;
+//     }
+//   }
+//   &.page_banner {
+//     #banner_img {
+//       margin-bottom: 65px;
+//     }
+//     #banner_curve {
+//       margin-bottom:50px;
+//       z-index: 10;
+//       &:after {
+//         display: block;
+//         visibility: hidden;
+//         clear: both;
+//         width: 0;
+//         height: 0;
+//         line-height: 0;
+//         content: ".";
+//       }
+//     }
+//     #banner_content {
+//       text-align: left;
+//       max-width: 1280px;
+//       #banner_title, #banner_text {
+//         text-align: left;
+//       }
+//       p {
+//         width:100%;
+//         text-align: left;
+//       }
+//     }
+//     #image_container {
+//       position: relative;
+//       display: inline-block;
+//       #pageHeroImg {
+//         display: block;
+//         margin: -30px auto -135px;
+//         margin: 0 auto -100px;
+//         vertical-align: middle;
+//       }
+//     }
 }
 
 // ********************************************
@@ -265,109 +297,59 @@ html {
 // ********************************************
 // THE MAP
 // ********************************************
-.fullMap {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  #theMap {
-    position: relative;
-    .et_pb_map {
-      height:500px;
-    }
-  }
-  #mapForm {
-    position: absolute;
-    max-width: 1280px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 50px;
-    z-index: 100;
-    .et_pb_code_inner {
-      @include container(100%);
-      .nf-form-layout {
-        @include span(2 of 6);
-        float: right;
-        background-color: $white;
-        @include material_box_shadow(1);
-        border-radius: 5px;
-        padding: 2.5em;
-        &:hover {
-          @include material_box_shadow(3);
-          @include translate (0, -5px);
-        }
-        &:before {
-          content:"Get in touch";
-          color: $trust-blue;
-          font-size: 2.5em;
-          font-weight: 700;
-          margin-bottom: 0.5em;
-          display: block;
-        }
-      }
-    }
-  }
-}
-
-// ********************************************
-// PRE FOOTER
-// ********************************************
-#footerContacts {
-  padding: 230px 0;
-  .contact {
-    .et_pb_blurb_content {
-      @include container(100%);
-      .et_pb_main_blurb_image {
-        @include span(2 of 6);
-        .et_pb_image_wrap {
-          border-radius: 50%;
-          background-color: lighten($trust-grey, 50%);
-          width:64px; height:64px;
-          display: inline-block;
-          text-align: center;
-          line-height: 64px;
-          vertical-align:middle;
-          span {
-            font-size:2em;
-            vertical-align:middle;
-          }
-        }
-      }
-      .et_pb_blurb_container {
-        @include span(4 of 6 last);
-        h4 {
-          font-weight: 600;
-          padding-bottom: 0.75em;
-        }
-        p {
-          font-size: 1em;
-          font-weight: 400;
-          padding-bottom: 0.25em;
-        }
-      }
-    }
-  }
-}
-
-// .page-id-223 {
-//   #page-container {
-//     #et-main-area {
-//       #main-content {
-//         position: relative;
-//         z-index: -1;
-//         top: -209px;
-//         .fullMap {
-//           #theMap {
-//             .et_pb_map {
-//               height:800px;
-//             }
-//           }
-//           #mapForm {
-//             top:200px;
-//           }
+// .fullMap {
+//   padding: 0 !important;
+//   margin: 0 !important;
+//   width: 100% !important;
+//   max-width: 100% !important;
+//   #theMap {
+//     position: relative;
+//     .et_pb_map {
+//       height:500px;
+//     }
+//   }
+//   #mapForm {
+//     position: absolute;
+//     max-width: 1280px;
+//     margin: auto;
+//     left: 0;
+//     right: 0;
+//     top: 50px;
+//     z-index: 100;
+//     .et_pb_code_inner {
+//       @include container(100%);
+//       .nf-form-layout {
+//         @include span(2 of 6);
+//         float: right;
+//         background-color: $white;
+//         @include material_box_shadow(1);
+//         border-radius: 5px;
+//         padding: 2.5em;
+//         &:hover {
+//           @include material_box_shadow(3);
+//           @include translate (0, -5px);
+//         }
+//         &:before {
+//           content:"Get in touch";
+//           color: $trust-blue;
+//           font-size: 2.5em;
+//           font-weight: 700;
+//           margin-bottom: 0.5em;
+//           display: block;
 //         }
 //       }
 //     }
 //   }
 // }
+
+// ********************************************
+// PRE FOOTER
+// ********************************************
+#footerContacts {
+
+}
+
+
+// ********************************************
+// FOOTER
+// ********************************************

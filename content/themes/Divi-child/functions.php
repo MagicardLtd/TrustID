@@ -296,8 +296,8 @@ function editions_overview() {
 			$html .= get_field('edition_overview');
 			if (!$getPost) {
 				$html .= '<footer>'."\n";
-				$trialUrl = get_the_permalink(get_field('trial_form', 'option', false)).'&ver='.get_the_ID().'&verName='.get_the_title().'&cur=usd&sub=monthly';
-				$buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'&ver='.get_the_ID().'&verName='.get_the_title().'&sub=purchase';
+				$trialUrl = get_the_permalink(get_field('trial_form', 'option', false)).'?ver='.get_the_ID().'&verName='.get_the_title().'&cur=usd&sub=monthly';
+				$buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'?ver='.get_the_ID().'&verName='.get_the_title().'&sub=purchase';
 				$html .= '<a href="'.$trialUrl.'" class="blueBtn trialDownload">download FREE trial</a>'."\n";
 				$html .= '<span>or</span>'."\n";
 				$html .= '<a href="'.$buyUrl.'" class="blueBtn editionDownload">Purchase</a>'."\n";

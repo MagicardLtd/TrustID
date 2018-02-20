@@ -19,10 +19,12 @@
       var bg = ('url(' + $(this).data("image-src") + ')');
       return bg;
     });
-    // var imgH = $('#heroImg').height();
-    // $('#banner_curve').css("padding-bottom", imgH+"px");
+    var third = ($('#heroImg').height() *1/3)
+    var twoThirds = ($('#heroImg').height() *2/3);
+    $('#banner_content').css("padding-bottom", twoThirds+"px");
+    $('#banner_curve').css("margin-bottom", third+"px");
+    $('.image_container').css("bottom", "-"+third+"px");  
   }
-
   function past_banner() {
     if($(document).scrollTop()>=$('#main-content').position().top){
       $('#main-header').toggleClass('past');

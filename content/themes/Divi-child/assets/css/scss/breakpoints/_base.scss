@@ -165,97 +165,8 @@ body {
 // ********************************************
 // Banner styleshee
 #banner_container {
-  width:100%;
-  position: relative;
-  display: block;
-  overflow: hidden;
-  text-align: center;
-  #banner_curve, #banner_img {
-    position: relative;
-    width:200%;
-    margin-left: -50%;
-    padding:0 50%;
-    border-radius: 0px 0px 50% 50%;
-    background-color: rgba($trust-blue, 0.65);
-    margin-bottom:30px;
-    text-align: center;
-    .image_container {
-      display:inline-block;
-      position:relative;
-      height: 428px;
-      #heroImg {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        vertical-align: middle;
-        float: right;
-        margin-top: 5px;
-        margin-bottom: -135px;
-      }
-      // position: absolute;
-      // top: auto;
-      // bottom: -30px;
-      // left: 0;
-      // right: 0;
-      // margin: 0 auto;
-    }
-  }
 
-  // .video_container {
-  //   display:inline-block;
-  //   float:left;
-  //   position:relative;
-  //   .center_block {
-  //     display: block;
-  //     margin-left: auto;
-  //     margin-right: auto;
-  //     vertical-align: middle;
-  //     margin-top: 5px;
-  //     margin-bottom: -135px;
-  //   }
-  // }
-
-
-
-  #banner_img {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  #banner_video {
-
-  }
-  #banner_content {
-    width: 80%;
-    margin: auto;
-    padding-top: 100px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    #banner_title, p {
-      text-align: center;
-      color: $white;
-      padding-bottom:0.5em;
-      font-size:1.25em;
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
-    #banner_title {
-      font-weight: 700;
-      text-shadow: 1px 1px 3px rgba($black, 0.5);
-      font-size:2.5em;
-      line-height: 1.25em;
-    }
-    #banner_btn {
-      font-size:1.35em;
-      margin:0.5em 0;
-    }
-  }
- }
+}
 
  // ********************************************
  // EDITIONS
@@ -266,3 +177,16 @@ body {
 //     @include span(1 of 5 last);
 //   }
 // }
+
+
+// ********************************************
+// PRE FOOTER
+// ********************************************
+#footerContacts {
+
+}
+
+
+// ********************************************
+// FOOTER
+// ********************************************
