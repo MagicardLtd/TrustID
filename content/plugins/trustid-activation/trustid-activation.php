@@ -210,7 +210,7 @@ function trustid_activate_init() {
     $role->add_cap( 'view_PII', true );
 
     wp_enqueue_script( "jquery");
-    wp_enqueue_script( "jquery-validation", plugins_url( "/trustid-activation/" )."js/jquery-validation-1.11.1/jquery.validate.min.js","jquery" );
+    wp_enqueue_script( "jquery-validation", 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js', array('jquery') );
     wp_enqueue_script('jquery-ui-datepicker');
     wp_enqueue_style('jquery-style', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 }
