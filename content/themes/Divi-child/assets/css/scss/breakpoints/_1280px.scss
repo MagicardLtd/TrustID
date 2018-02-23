@@ -242,35 +242,36 @@ html {
 // PRICING TABLE
 // ********************************************
 #pricing_options {
-  @include container(100%);
-  margin-bottom: 3em;
-  border-bottom: 1px solid rgba($trust_blue, 0.1);
+  // @include container(100%);
+  // margin-bottom: 3em;
+  // border-bottom: 1px solid rgba($trust_blue, 0.1);
   #selectCur {
-    text-align: center;
-    padding-bottom: 3em;
-    @include span(2 of 6);
-    @include push(2);
-    border-right: 1px solid rgba($trust_blue, 0.1);
-    vertical-align: middle;
+    // text-align: center;
+    // padding-bottom: 3em;
+    // @include span(2 of 6);
+    // @include push(2);
+    // border-right: 1px solid rgba($trust_blue, 0.1);
+    // vertical-align: middle;
+    text-align: right;
   }
-  #selectSub {
-    text-align: center;
-    padding-bottom: 3em;
-    @include span(2 of 6);
-    vertical-align: middle;
-    .toggle-input {
-      height: 64px;
-      padding-top: 8px;
-      label, span {
-        vertical-align: middle;
-        display: inline-block;
-        font-size: 1.25em;
-        color: $trust_blue;
-        font-weight: 500;
-        margin: 0 3px;
-      }
-    }
-  }
+  // #selectSub {
+  //   text-align: center;
+  //   padding-bottom: 3em;
+  //   @include span(2 of 6);
+  //   vertical-align: middle;
+  //   .toggle-input {
+  //     height: 64px;
+  //     padding-top: 8px;
+  //     label, span {
+  //       vertical-align: middle;
+  //       display: inline-block;
+  //       font-size: 1.25em;
+  //       color: $trust_blue;
+  //       font-weight: 500;
+  //       margin: 0 3px;
+  //     }
+  //   }
+  // }
 }
 
 // EDITIONS
