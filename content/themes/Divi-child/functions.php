@@ -353,7 +353,7 @@ function editions_test_overview() {
 			}
 			$html .= "";
 			$html .= "</span>\n";
-			$html .= '<small> /per licence</small>'."\n";
+			$html .= '<small> Per licence</small>'."\n";
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
 			$html .= get_field('edition_overview');
