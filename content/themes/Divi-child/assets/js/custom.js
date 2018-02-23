@@ -23,7 +23,7 @@
     var twoThirds = ($('#heroImg').height() *2/3);
     $('#banner_content').css("padding-bottom", twoThirds+"px");
     $('#banner_curve').css("margin-bottom", third+"px");
-    $('.image_container').css("bottom", "-"+third+"px");  
+    $('.image_container').css("bottom", "-"+third+"px");
   }
   function past_banner() {
     if($(document).scrollTop()>=$('#main-content').position().top){
@@ -185,15 +185,16 @@
   function updatePrice() {
     var price = $('.edition_price'),
       url = $('.trialDownload'),
-      sub = $('.edition_price').data('subscription'),
+      // sub = $('.edition_price').data('subscription'),
       cur = $('.edition_price').data('currency'),
-      tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annually</small>';
+      // tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annually</small>';
     price.each(function() {
-      $(this).html($(this).data(sub+'-'+cur)+tag);
+      // $(this).html($(this).data(sub+'-'+cur)+tag);
+      $(this).html($(this).data('licence-'+cur)+'<small> /per licence</small>');
     });
     url.each(function() {
       var newURL = paramReplace('cur', $(this).attr("href"), cur);
-      newURL = paramReplace('sub', newURL, sub);// var params = array();
+      // newURL = paramReplace('sub', newURL, sub);// var params = array();
       $(this).attr("href", newURL);
     });
   }
@@ -230,7 +231,8 @@
   All function are called here either on page load or scroll
   *************************/
   $(document).ready(function() {
-    $('.edition_price').data({subscription:'monthly',  currency:'usd'});
+    // $('.edition_price').data({subscription:'monthly',  currency:'usd'});
+    $('.edition_price').data({subscription:'licence',  currency:'usd'});
     page_banner();
     logo_swap();
     screensilder();
@@ -242,13 +244,13 @@
     });
     $("ul>li,ol>li").wrapInner("<span></span>");
     $('.currency').change(function() { changeCurrency($(this)) });
-    $('#priceToggle').change(function() {
-      if (this.checked) {
-        changeSubscription('annualy');
-      } else {
-        changeSubscription('monthly');
-      }
-    });
+    // $('#priceToggle').change(function() {
+    //   if (this.checked) {
+    //     changeSubscription('annualy');
+    //   } else {
+    //     changeSubscription('monthly');
+    //   }
+    // });
   });
 
   $(document).on('scroll', function() {
