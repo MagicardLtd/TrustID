@@ -251,15 +251,20 @@ html {
     display:inline-block;
     vertical-align: middle;
   }
+  h3 {
+    @include span(3 of 6);
+  }
   #selectCur {
-    display:inline-block;
     // text-align: center;
     // padding-bottom: 3em;
-    // @include span(2 of 6);
+    @include span(3 of 6 last);
     // @include push(2);
     // border-right: 1px solid rgba($trust_blue, 0.1);
     vertical-align: middle;
     text-align: right;
+    h4 {
+      display: inline-block;
+    }
   }
   // #selectSub {
   //   text-align: center;
