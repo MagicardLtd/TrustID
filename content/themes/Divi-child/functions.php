@@ -310,6 +310,67 @@ function editions_overview() {
 	return $html;
 }
 
+function editions_test_overview() {
+	global $post;
+	$getPost = (isset($_GET['ver'])) ? $_GET['ver'] : null;
+	$class = (isset($_GET['ver'])) ? 'single' : null;
+	$html = '';
+	$args = array(
+		"p"						=> $getPost,
+		'post_type'   => 'editions',
+		'post_status' => 'publish',
+		'order' 			=> 'ASC',
+	);
+	$editions = new WP_Query( $args );
+	if ( $editions->have_posts() ) :
+		if (!$getPost) {
+			$html .= '<div id="pricing_options">'."\n";
+			$html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="usd" />'."\n";
+			$html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";
+			$html .= '<div class="flag flag-gb"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="eur" />'."\n";
+			$html .= '<div class="flag flag-eu"></div>'."\n".'</label>'."\n";
+			$html .= '</div>'."\n"; // Close selectCur
+			// $html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
+			// $html .= '<div class="toggle-input">'."\n";
+			// $html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
+			// $html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annually</span>'."\n";
+			// $html .= '</div>'."\n"; // Close toggle-input
+			// $html .= '</div>'."\n"; // Close selectSub
+			$html .= '</div>'."\n"; // Close pricing_options
+		}
+		while ( $editions->have_posts() ) : $editions->the_post();
+			$cur = (isset($_GET['cur'])) ? strtoupper($_GET['cur']) : 'USD';
+			$sub = (isset($_GET['sub'])) ? $_GET['sub'] : 'monthly';
+			$html .= '<section class="edition paper '.$class.'">'."\n";
+			$html .= '<header>'."\n";
+			$html .= '<span class="edition_price" data-monthly-eur="'.get_field('monthly_EUR').'" data-annualy-eur="'.get_field('annual_EUR').'" data-monthly-usd="'.get_field('monthly_USD').'" data-annualy-usd="'.get_field('annual_USD').'" data-monthly-gbp="'.get_field('monthly_GBP').'" data-annualy-gbp="'.get_field('annual_GBP').'">'."\n";
+			if ($sub != 'purchase') {
+				$html .= get_field($sub.'_'.$cur).'<small> /'.$sub.'</small>'."\n";
+			}
+			$html .= "";
+			$html .= "</span>\n";
+			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
+			$html .= "</header>\n";
+			$html .= get_field('edition_overview');
+			if (!$getPost) {
+				$html .= '<footer>'."\n";
+				$trialUrl = get_the_permalink(get_field('trial_form', 'option', false)).'?ver='.get_the_ID().'&verName='.get_the_title().'&cur=usd';
+				// $buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'?ver='.get_the_ID().'&verName='.get_the_title().'&sub=purchase';
+				$buyUrl = get_the_permalink(get_field('purchase_form', 'option', false)).'?ver='.get_the_ID().'&verName='.get_the_title();
+				$html .= '<a href="'.$trialUrl.'" class="blueBtn trialDownload">download FREE trial</a>'."\n";
+				$html .= '<span>or</span>'."\n";
+				$html .= '<a href="'.$buyUrl.'" class="blueBtn editionDownload">Purchase</a>'."\n";
+				$html .= "</footer>\n";
+			}
+			$html .= "</section>\n";
+		endwhile;
+		wp_reset_postdata();
+	endif;
+	return $html;
+}
 
 // Theme Shortcodes
 function showmodule_shortcode($moduleid) {
@@ -329,5 +390,6 @@ add_shortcode('carasel', 'screen_carasel');
 add_shortcode('pageVideo', 'page_video');
 add_shortcode('compare', 'editions_table');
 add_shortcode('editions', 'editions_overview');
+add_shortcode('editions_testr', 'editions_test_overview');
 
 ?>
