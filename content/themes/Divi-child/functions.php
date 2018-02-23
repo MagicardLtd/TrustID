@@ -324,9 +324,9 @@ function editions_test_overview() {
 	$editions = new WP_Query( $args );
 	if ( $editions->have_posts() ) :
 		if (!$getPost) {
-			$html .= '<h3>Pricing and features</h3>';
 			$html .= '<div id="pricing_options">'."\n";
-			$html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
+			$html .= '<h3>Pricing and features</h3>';
+			$html .= '<div id="selectCur">'."\n".'<h4>Select currency</h4>'."\n";
 			$html .= '<label class="radio-img">'."\n".'<input class="currency selected" type="radio" name="currency" value="usd" />'."\n";
 			$html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
 			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";

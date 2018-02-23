@@ -242,16 +242,17 @@ html {
 // PRICING TABLE
 // ********************************************
 #pricing_options {
-  // @include container(100%);
-  // margin-bottom: 3em;
-  // border-bottom: 1px solid rgba($trust_blue, 0.1);
+  @include container(100%);
+  margin-bottom: 3em;
+  border-bottom: 1px solid rgba($trust_blue, 0.1);
+  vertical-align: middle;
   #selectCur {
     // text-align: center;
     // padding-bottom: 3em;
     // @include span(2 of 6);
     // @include push(2);
     // border-right: 1px solid rgba($trust_blue, 0.1);
-    // vertical-align: middle;
+    vertical-align: middle;
     text-align: right;
   }
   // #selectSub {
