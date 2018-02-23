@@ -348,10 +348,11 @@ function editions_test_overview() {
 			$html .= '<header>'."\n";
 			$html .= '<span class="edition_price" data-licence-eur="'.get_field('licence_EUR').'" data-licence-usd="'.get_field('licence_USD').'" data-licence-gbp="'.get_field('licence_GBP').'">'."\n";
 			if ($sub != 'purchase') {
-				$html .= get_field('licence_'.$cur).'<small> /per licence</small>'."\n";
+				$html .= get_field('licence_'.$cur)."\n";
 			}
 			$html .= "";
 			$html .= "</span>\n";
+			$html .= '<small> /per licence</small>'."\n";
 			$html .= '<span class="edition_title">'.get_the_title()."</span>\n";
 			$html .= "</header>\n";
 			$html .= get_field('edition_overview');

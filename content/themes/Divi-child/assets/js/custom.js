@@ -190,7 +190,7 @@
       // tag = (sub == 'monthly') ? '<small> /monthly</small>' : '<small> /annually</small>';
     price.each(function() {
       // $(this).html($(this).data(sub+'-'+cur)+tag);
-      $(this).html($(this).data('licence-'+cur)+'<small> /per licence</small>');
+      $(this).html($(this).data('licence-'+cur));
     });
     url.each(function() {
       var newURL = paramReplace('cur', $(this).attr("href"), cur);
