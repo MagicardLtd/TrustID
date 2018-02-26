@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 /**
  * Plugin Name: TrustID Activation
