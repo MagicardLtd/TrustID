@@ -100,7 +100,9 @@ function home_page_banner($id) {
 	$html .= '<section id="banner_content">'."\n";
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
 	$html .= $data['text']."\n";
-	$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
+	if ($data['button']) {
+		$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
+	}	
 	$html .= "</section>\n";
 	$html .= '<div class="image_container">'."\n";
 	$html .= '<img id="heroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";

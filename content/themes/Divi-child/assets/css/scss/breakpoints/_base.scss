@@ -8,10 +8,12 @@ html {
 
 body {
   background-color: $white;
-  &.home {
+  &.home, &.page-template-v3v4-page {
     background-color: $trust-bg-blue;
   }
 }
+
+
 
 [class^="icon-"], [class*=" icon-"] {
   height: 32px;
