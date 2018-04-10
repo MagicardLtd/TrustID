@@ -1,0 +1,32 @@
+{
+  "name": "trust-id-theme",
+  "version": "1.0.0",
+  "description": "Trust ID Theme",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "John Fieldsend",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/johnboy4809/vanilla-wordpress/issues"
+  },
+  "homepage": "https://github.com/johnboy4809/vanilla-wordpress#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "sass-loader": "^6.0.6",
+    "susy": "^2.2.12"
+  },
+  "dependencies": {
+    "gulp-install": "^1.1.0"
+  }
+}
