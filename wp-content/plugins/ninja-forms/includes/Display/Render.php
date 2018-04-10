@@ -322,7 +322,10 @@ final class NF_Display_Render
                 if( isset( $field[ 'settings' ][ 'textarea_media' ] ) && $field[ 'settings' ][ 'textarea_media' ] ){
                     array_push( self::$form_uses_textarea_media, $form_id );
                 }
-                if( isset( $field[ 'settings' ][ 'help_text' ] ) && strip_tags( $field[ 'settings' ][ 'help_text' ] ) ){
+                // strip all tags except image tags
+                if( isset( $field[ 'settings' ][ 'help_text' ] ) &&
+                    strip_tags( $field[ 'settings' ][ 'help_text' ], '<img>'
+                    ) ){
                     array_push( self::$form_uses_helptext, $form_id );
                 }
             }
@@ -572,8 +575,8 @@ final class NF_Display_Render
         wp_localize_script( 'nf-front-end', 'nfi18n', Ninja_Forms::config( 'i18nFrontEnd' ) );
 
         $data = apply_filters( 'ninja_forms_render_localize_script_data', array(
-            'ajaxNonce' => wp_create_nonce( 'ninja_forms_display_nonce' ),
             'adminAjax' => admin_url( 'admin-ajax.php' ),
+            'ajaxNonce' => wp_create_nonce( 'ninja_forms_display_nonce' ),
             'requireBaseUrl' => Ninja_Forms::$url . 'assets/js/',
             'use_merge_tags' => array(),
             'opinionated_styles' => Ninja_Forms()->get_setting( 'opinionated_styles' )

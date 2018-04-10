@@ -17,6 +17,18 @@ define( [], function() {
 		},
 
 		getCheckboxValue: function( key, trigger, value ) {
+			/*
+			 * Checks our values ensures they've been converted to strings and
+			 * sets the value.
+			 */
+			if( 1 == value && value.length > 1 ) {
+				value = 'checked';
+			} else if( 0 == value && value.length > 1 ) {
+                value = 'unchecked';
+            } else if( 0 == value.length ){
+				value = '';
+			}
+
 			var template = Backbone.Radio.channel( 'app' ).request( 'get:template', '#tmpl-nf-cl-value-checkbox' );
 			return template( { value: value } );
 		},

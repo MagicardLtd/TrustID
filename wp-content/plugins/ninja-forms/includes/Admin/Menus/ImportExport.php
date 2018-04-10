@@ -129,8 +129,15 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
         wp_enqueue_script('postbox');
         wp_enqueue_script('jquery-ui-draggable');
 
+	    wp_enqueue_style( 'nf-admin-settings', Ninja_Forms::$url . 'assets/css/admin-settings.css' );
+
         wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
         wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
+
+	    wp_register_script( 'ninja_forms_admin_import_export',
+		    Ninja_Forms::$url . 'assets/js/admin-import-export.js', array( 'jquery' ), FALSE, TRUE );
+
+	    wp_enqueue_script( 'ninja_forms_admin_import_export' );
 
         Ninja_Forms::template( 'admin-menu-import-export.html.php', compact( 'tabs', 'active_tab' ) );
     }
@@ -179,7 +186,26 @@ final class NF_Admin_Menus_ImportExport extends NF_Abstracts_Submenu
 
     public function template_export_forms()
     {
-        $forms = Ninja_Forms()->form()->get_forms();
+    	/**
+	     * we're gonna create a new array so that we can select a form in the
+	     * export drop down based on a url parameter
+	     **/
+    	$formObjs = Ninja_Forms()->form()->get_forms();
+    	$forms = array();
+    	foreach( $formObjs as $form ) {
+    		$selected = '';
+
+    		if( isset( $_REQUEST[ 'exportFormId' ] )
+		        && $form->get_id() == $_REQUEST[ 'exportFormId' ] ) {
+    			$selected = 'selected';
+		    }
+    		$forms[] = array(
+    			'id' => $form->get_id(),
+			    'title' => $form->get_setting( 'title' ),
+			    'selected' => $selected,
+		    );
+	    }
+
         Ninja_Forms::template( 'admin-metabox-import-export-forms-export.html.php', compact( 'forms' ) );
     }
 

@@ -1,0 +1,25 @@
+
+
+<style>
+	span.hint {color:#aaa;}
+	label {font-weight:bold; display:inline-block; width:100px; padding-right:10px;}
+	label.error {width:auto; padding-left:10px; color:red;}
+	input, select {display:inline-block; width:150px;}
+</style>
+
+<div class="wrap">
+	<div id="icon-tools" class="icon32"></div><h2>Generated registration keys</h2>
+</div>
+<div class="wrap">
+	<br>
+	Here are the keys that have just been generated for use by <?= $_POST['distributor']?>.<br>
+	<ul>
+		<?php foreach($displayKeys as $key) : ?>
+			<li>
+				<?= $key?>
+			</li>
+		<?php endforeach ?>
+	</ul>
+</div>
+
+<?php exit;

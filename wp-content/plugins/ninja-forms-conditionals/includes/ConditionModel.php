@@ -65,6 +65,15 @@ final class NF_ConditionalLogic_ConditionModel
             case 'field':
                 $fieldModel = $this->fields->get_field( $when[ 'key' ] );
                 $value = $fieldModel->get_setting( 'value' );
+                // If we have a checkbox....
+                if( 'checkbox'  == $fieldModel->get_setting( 'type' ) ) {
+                    // Check the value and change it to check or unchecked.
+                    if( 0 == $value ) {
+                        $value = 'unchecked';
+                    } else {
+                        $value = 'checked';
+                    }
+                }
                 break;
             case 'calc':
                 try {

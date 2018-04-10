@@ -270,8 +270,8 @@ if ( ! version_compare( get_option( 'ninja_forms_version', '0' ), '3.0', '>' ) )
     <label class="nf-select">
         <select data-id="value" class="setting">
             <option value="">Select One</option>
-            <option value="1" {{{ ( 1 == data.value ) ? 'selected="selected"': '' }}}>{{{ nfcli18n.builderEditSettingsChecked }}}</option>
-            <option value="0" {{{ ( 0 === data.value ) ? 'selected="selected"': '' }}}>{{{ nfcli18n.builderEditSettingsUnchecked }}}</option>
+            <option value="checked" {{{ ( 'checked' == data.value ) ? 'selected="selected"': '' }}}>{{{ nfcli18n.builderEditSettingsChecked }}}</option>
+            <option value="unchecked" {{{ ( 'unchecked' == data.value ) ? 'selected="selected"': '' }}}>{{{ nfcli18n.builderEditSettingsUnchecked }}}</option>
         </select>
         <div></div>
     </label>

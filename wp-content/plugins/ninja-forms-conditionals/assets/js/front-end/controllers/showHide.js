@@ -16,9 +16,8 @@ define( [], function() {
 			var targetFieldModel = nfRadio.channel( 'form-' + conditionModel.collection.formModel.get( 'id' ) ).request( 'get:fieldByKey', then.key );
 
 			if( 'undefined' == typeof targetFieldModel ) return;
-
 			targetFieldModel.set( 'visible', false );
-			if ( ! targetFieldModel.get( 'clean' ) ) {
+            if ( ! targetFieldModel.get( 'clean' ) ) {
 				targetFieldModel.trigger( 'change:value', targetFieldModel );
 			}
 			
@@ -27,15 +26,14 @@ define( [], function() {
 
 		showField: function( conditionModel, then ) {
 			var targetFieldModel = nfRadio.channel( 'form-' + conditionModel.collection.formModel.get( 'id' ) ).request( 'get:fieldByKey', then.key );
-
 			//TODO: Add an error to let the user know the show/hide field is empty.
 			if( 'undefined' == typeof targetFieldModel ) return;
 			targetFieldModel.set( 'visible', true );
-			if ( ! targetFieldModel.get( 'clean' ) ) {
-				targetFieldModel.trigger( 'change:value', targetFieldModel );
+            if ( ! targetFieldModel.get( 'clean' ) ) {
+                targetFieldModel.trigger( 'change:value', targetFieldModel );
 			}
 			var viewEl = { el: nfRadio.channel( 'form-' + conditionModel.collection.formModel.get( 'id' ) ).request( 'get:el' ) };
-			nfRadio.channel( 'form' ).request( 'init:help', viewEl );
+            nfRadio.channel( 'form' ).request( 'init:help', viewEl );
 		}
 	});
 
