@@ -100,7 +100,9 @@ function home_page_banner($id) {
 	$html .= '<section id="banner_content">'."\n";
 	$html .= '<h1 id="banner_title">'.$data['title'].'</h1>'."\n";
 	$html .= $data['text']."\n";
-	$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
+	if ($data['button']) {
+		$html .= '<a id="banner_btn" href="#editions" class="whiteBtn scrollTo">'.$data['button'].'</a>';
+	}	
 	$html .= "</section>\n";
 	$html .= '<div class="image_container">'."\n";
 	$html .= '<img id="heroImg" src="'.esc_url( $img_src ).'" srcset="'.esc_attr( $img_srcset ).'"'."\n";
@@ -263,22 +265,22 @@ function editions_overview() {
 	$editions = new WP_Query( $args );
 	if ( $editions->have_posts() ) :
 		if (!$getPost) {
-			// $html .= '<div id="pricing_options">'."\n";
-			// $html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
-			// $html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="usd" />'."\n";
-			// $html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
-			// $html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";
-			// $html .= '<div class="flag flag-gb"></div>'."\n".'</label>'."\n";
-			// $html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="eur" />'."\n";
-			// $html .= '<div class="flag flag-eu"></div>'."\n".'</label>'."\n";
-			// $html .= '</div>'."\n"; // Close selectCur
-			// $html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
-			// $html .= '<div class="toggle-input">'."\n";
-			// $html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
-			// $html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annually</span>'."\n";
-			// $html .= '</div>'."\n"; // Close toggle-input
-			// $html .= '</div>'."\n"; // Close selectSub
-			// $html .= '</div>'."\n"; // Close pricing_options
+			$html .= '<div id="pricing_options">'."\n";
+			$html .= '<div id="selectCur">'."\n".'<h3>Select currency</h3>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="usd" />'."\n";
+			$html .= '<div class="flag flag-us"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="gbp" />'."\n";
+			$html .= '<div class="flag flag-gb"></div>'."\n".'</label>'."\n";
+			$html .= '<label class="radio-img">'."\n".'<input class="currency" type="radio" name="currency" value="eur" />'."\n";
+			$html .= '<div class="flag flag-eu"></div>'."\n".'</label>'."\n";
+			$html .= '</div>'."\n"; // Close selectCur
+			$html .= '<div id="selectSub">'."\n".'<h3>Select subscription</h3>'."\n";
+			$html .= '<div class="toggle-input">'."\n";
+			$html .= '<span>Monthly</span>'."\n".'<input type="checkbox" id="priceToggle" />'."\n";
+			$html .= '<label for="priceToggle">Toggle</label>'."\n".'<span>Annually</span>'."\n";
+			$html .= '</div>'."\n"; // Close toggle-input
+			$html .= '</div>'."\n"; // Close selectSub
+			$html .= '</div>'."\n"; // Close pricing_options
 		}
 		while ( $editions->have_posts() ) : $editions->the_post();
 			$cur = (isset($_GET['cur'])) ? strtoupper($_GET['cur']) : 'USD';

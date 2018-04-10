@@ -231,12 +231,8 @@
   All function are called here either on page load or scroll
   *************************/
   $(document).ready(function() {
-<<<<<<< HEAD
-    $('.edition_price').data({subscription:'annualy',  currency:'usd'});
-=======
     // $('.edition_price').data({subscription:'monthly',  currency:'usd'});
     $('.edition_price').data({subscription:'licence',  currency:'usd'});
->>>>>>> 47818eef86b468f1f69e90558a591db561406f1c
     page_banner();
     logo_swap();
     screensilder();
@@ -247,11 +243,7 @@
       scrollToID();
     });
     $("ul>li,ol>li").wrapInner("<span></span>");
-<<<<<<< HEAD
-    // $('.currency').change(function() { changeCurrency($(this)) });
-=======
     $('.currency').change(function() { changeCurrency($(this)) });
->>>>>>> 47818eef86b468f1f69e90558a591db561406f1c
     // $('#priceToggle').change(function() {
     //   if (this.checked) {
     //     changeSubscription('annualy');

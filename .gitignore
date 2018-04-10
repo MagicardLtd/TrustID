@@ -9,7 +9,7 @@ live-config.php
 sitemap.xml
 sitemap.xml.gz
 wp-content/uploads/*
-wp-content/themes/*/node_modules
+
 wp-content/db.php
 wp-content/plugins/query-monitor/
 wp-content/themes/*/assets/css/maps/
