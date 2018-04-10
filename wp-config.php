@@ -52,11 +52,11 @@ define('WP_DEBUG', true);
 if (!defined('ABSPATH')) define('ABSPATH', dirname(__FILE__) . '/');
 
 /* Change location of wp-content folder */
-define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content');
+// define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/content');
+// define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content');
 
 /* Limit post revisions */
-define('WP_POST_REVISIONS', 5);
+define('WP_POST_REVISIONS', 1);
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

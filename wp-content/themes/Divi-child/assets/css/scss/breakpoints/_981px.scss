@@ -1,0 +1,103 @@
+
+// ********************************************
+// COMMON SITE STYLES
+// ********************************************
+
+html {
+  font-size:16px; // Set base font for mobile
+}
+
+.single, .home, .page {
+  #page-container {
+    padding-top:0 !important;
+  }
+}
+
+
+#left-area {
+  width: 100% !important;
+  padding: 23px 0px 0px !important;
+  float: none !important;
+}
+
+// ********************************************
+// SITE HEADER
+// ********************************************
+.et_menu_container {
+  height:100px;
+}
+
+.et_header_style_left {
+  #et-top-navigation {
+    padding-top:0;
+    height:100px;
+    #top-menu-nav { // nav
+      padding:0;margin:0;
+      #top-menu { // ul
+        padding:0;margin:0;
+        li {
+          padding:0;margin:0;
+          height: 100px;
+          text-align: center;
+          white-space: nowrap;
+          margin-right: 11px;
+          &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+          }
+          a {
+            color:$white;
+            display: inline-block;
+            line-height: normal;
+            padding:1em 1.2em;
+            letter-spacing:1px;
+            font-weight: 700;
+            text-transform:uppercase;
+          }
+        }
+      }
+    }
+  }
+  #et_search_icon {
+    &:before {
+      line-height: 100px;
+    }
+  }
+}
+
+.et-fixed-header {
+  #et-top-navigation {
+    #top-menu {
+      li {
+        color: $trust_blue;
+      }
+    }
+  }
+}
+
+// ********************************************
+// BANNER
+// ********************************************
+#banner_container {
+  #banner_curve, #banner_img {
+    width:200%;
+    margin-left: -50%;
+    padding:0 50%;
+    border-radius: 0px 0px 50% 50%;
+  }
+}
+
+
+// ********************************************
+// PRE FOOTER
+// ********************************************
+#footerContacts {
+
+}
+
+
+// ********************************************
+// FOOTER
+// ********************************************

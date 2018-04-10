@@ -1,0 +1,213 @@
+// ********************************************
+// GENERAL FORM STYLES
+// ********************************************
+.nf-field-element {
+  input.text, input.title, input[type=email], input[type=password], input[type=tel], input[type=text], select, textarea {
+    border:1px solid rgba($trust_blue, 0.3);
+    background-color: lighten($trust-grey, 58%);
+    color: $trust_blue;
+    width: 100%;
+    padding: 16px;
+    font-size: 1em;
+    color: $trust_blue;
+  }
+  select {
+    height:52px !important;
+  }
+  textarea {
+    height: 120px !important;
+  }
+}
+
+.nf-after-field {
+  margin:0;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding:16px 0;
+  .nf-input-limit {
+    margin:0;
+  }
+}
+
+input[type=button] {
+  @extend %btn;
+  border:1px solid $trust_blue;
+  border-radius: 0;
+  background-color:$trust_blue;
+  font-size: 1.25em;
+  line-height: 1 !important;
+  color: $white;
+  padding:1em 1.2em !important;
+  &:hover,&:focus,&:active {
+    background-color:darken($trust-blue, 8%);
+    color: $white;
+    padding:1em 1.2em !important;
+  }
+  &.disable {
+    background-color:$trust-lblue;
+    color: $white;
+  }
+}
+
+
+// ********************************************
+// NINJA FORM OVERWRITES
+// ********************************************
+// #ninja_forms_required_items {
+  .nf-field-container {
+    margin-bottom: 15px !important;
+  }
+// }
+
+.siteForm {
+  padding:32px;
+}
+
+.et_pb_contact_field {
+  padding:0!important;
+}
+.et_pb_contact {
+  p {
+    input, textarea {
+      border:1px solid rgba($trust_blue, 0.3);
+      background-color: lighten($trust-grey, 58%);
+      color: $trust_blue;
+    }
+  }
+}
+
+.et_contact_bottom_container {
+  float: none;
+  margin-top: 1.5%;
+  text-align: left;
+  .et_pb_contact_submit {
+    @extend %btn;
+    border:1px solid $trust_blue;
+    border-radius: 0;
+    background-color:$trust_blue;
+    font-size: 1.25em;
+    line-height: 1 !important;
+    color: $white;
+    padding:1em 1.2em !important;
+    &:hover,&:focus,&:active {
+      background-color:darken($trust-blue, 8%);
+      color: $white;
+      padding:1em 1.2em !important;
+    }
+    &.disable {
+      background-color:$trust-lblue;
+      color: $white;
+    }
+  }
+}
+
+
+// ********************************************
+// TOGGLE
+// ********************************************
+$toggle-size: 50px;
+$toggle-space: 4px; // also update - input:checked + label:after
+
+.toggle-input {
+  input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: $toggle-size*2;
+    height: $toggle-size;
+    background: $trust_blue;
+    display: block;
+    border-radius: $toggle-size;
+    position: relative;
+    margin: auto;
+  }
+
+  label:after {
+    content: '';
+    position: absolute;
+    top: $toggle-space;
+    left: $toggle-space;
+    width: $toggle-size - $toggle-space*2;
+    height: $toggle-size - $toggle-space*2;
+    background: $white;
+    border-radius: $toggle-size - $toggle-space*2;
+    @include transition(all 0.3s);
+  }
+
+  input:checked + label {
+    // background: $trust_blue;
+    @include transition(all 0.3s);
+  }
+
+  input:checked + label:after {
+    left: calc(100% - 4px); //for some reason the variable for togglespace doesnt work here.
+    @include translate(-100%, 0);
+    // transform: translateX(-100%);
+  }
+
+  label:active:after {
+    width: ($toggle-size*2) - ($toggle-size/8);
+  }
+}
+
+// ********************************************
+// FLAGS
+// ********************************************
+.radio-img {
+  > input {
+    display:none;
+    &:checked {
+      + .flag {
+        &.flag-eu {
+          background-position: -130px -2px;
+        }
+        &.flag-us {
+          background-position: -2px -2px;
+        }
+        &.flag-gb {
+          background-position: -66px -2px;
+        }
+      }
+    }
+  }
+  > .flag {
+    cursor: pointer;
+    border:2px solid $white;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-image: url('../images/flags.svg');
+    background-repeat: no-repeat;
+    @include material_box_shadow(1);
+    &:hover {
+      @include material_box_shadow(3);
+      @include translate (0, -5px);
+    }
+    &.flag-eu {
+      background-position: -130px -66px;
+      &:hover {
+        background-position: -130px -2px;
+      }
+    }
+    &.flag-us {
+      background-position: -2px -66px;
+      &:hover {
+        background-position: -2px -2px;
+      }
+    }
+    &.flag-gb {
+      background-position: -66px -66px;
+      &:hover {
+        background-position: -66px -2px;
+      }
+    }
+  }
+}
